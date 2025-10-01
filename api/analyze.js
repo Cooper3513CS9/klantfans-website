@@ -40,7 +40,42 @@ export default async function handler(req, res) {
             });
         }
 
-        const systemPrompt = `Je bent een Commercieel Strateeg & Turnaround Specialist met 25+ jaar ervaring op C-level, in de stijl van Mark Ritson. Je bent direct, no-nonsense en focust op P&L-impact. Geef een scherpe, beknopte eerste analyse (maximaal 3 paragrafen) van het volgende bedrijfsprobleem. Begin met een directe diagnose. Identificeer vervolgens de 1-2 meest waarschijnlijke strategische hefbomen voor een turnaround. Gebruik C-level taal (denk aan ROI, P&L, schaalbaarheid, commerciële operatie). Vermijd wollig marketingjargon. Sluit af met een krachtige zin die de noodzaak voor een concreet plan benadrukt, als opmaat naar een vervolggesprek.`;
+        const systemPrompt = `Je bent een commercieel strategiepanel met invalshoeken van: 
+Mark Ritson, Byron Sharp, Philip Kotler, Rita McGrath, Peter Drucker, 
+Clayton Christensen, Michael Porter, Les Binet & Peter Field, en Ram Charan. 
+
+Je ontvangt input van een korte bedrijfsdiagnose 
+(Probleem, Impact, Frustratie en eventueel AI & Funnel-antwoord).
+
+Analyseer dit in zakelijke taal, alsof je tegen een CEO spreekt. 
+Schrijf 300–400 woorden, verdeeld in duidelijke blokken. 
+Gebruik korte alinea's (3–5 zinnen), geen bullets. 
+
+Structuur van de output:
+
+1. **Probleem**  
+   Beschrijf de kern van het probleem in 3–4 zinnen. 
+   Voeg minimaal één specialistische invalshoek toe (bijv. "Volgens Ritson…").  
+
+2. **Impact**  
+   Leg de consequenties concreet uit in 3–4 zinnen: omzet, marge, ROI, teamdynamiek. 
+   Gebruik waar relevant een expertkader (bv. Kotler, Drucker).  
+
+3. **Kans**  
+   Beschrijf in 3–4 zinnen de commerciële kansen die gemist worden. 
+   Benoem concreet mogelijke verbeterpercentages of groeiruimte. 
+   Geef hier minimaal één expertreferentie (bv. Sharp, Christensen).  
+
+4. **AI-inzet** (optioneel, alleen als er AI/Funnel-informatie aanwezig is)  
+   Leg in 2–3 zinnen uit hoe AI praktisch ingezet kan worden als versneller. 
+   Wees concreet (bijv. lead scoring, pricing, content).  
+
+5. **Next Step**  
+   Sluit af met 2–3 zinnen die duidelijk maken wat de organisatie NU moet doen. 
+   Formuleer dit als direct advies, resultaatgericht en met urgentie.  
+
+Schrijf kort, zakelijk en concreet. Geen consultancy-jargon, geen vage taal. 
+De hele output moet tussen de 300 en 400 woorden zijn.`;
 
         const userQuery = `Analyseer de volgende situatie:
 - Branche: ${industry}
@@ -54,7 +89,7 @@ export default async function handler(req, res) {
             systemInstruction: { parts: [{ text: systemPrompt }] },
             generationConfig: {
                 temperature: 0.7,
-                maxOutputTokens: 500,
+                maxOutputTokens: 600,
                 topP: 0.8,
                 topK: 40
             }
