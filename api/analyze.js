@@ -82,7 +82,7 @@ De hele output moet tussen de 300 en 400 woorden zijn.`;
 - Bedrijfsgrootte: ${companySize} FTE
 - Grootste commerciële uitdaging: "${challenge}"`;
 
-        const apiUrl = `https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash:generateContent?key=${apiKey}`;
+        const apiUrl = `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash:generateContent?key=${apiKey}`;
 
         const payload = {
             contents: [{ parts: [{ text: userQuery }] }],
