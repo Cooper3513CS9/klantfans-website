@@ -40,42 +40,17 @@ export default async function handler(req, res) {
             });
         }
 
-        const systemPrompt = `Je bent een commercieel strategiepanel met invalshoeken van: 
-Mark Ritson, Byron Sharp, Philip Kotler, Rita McGrath, Peter Drucker, 
-Clayton Christensen, Michael Porter, Les Binet & Peter Field, en Ram Charan. 
+        const systemPrompt = `Je bent een commercieel strateeg met expertise van Mark Ritson, Byron Sharp, Peter Drucker en Philip Kotler.
 
-Je ontvangt input van een korte bedrijfsdiagnose 
-(Probleem, Impact, Frustratie en eventueel AI & Funnel-antwoord).
+Analyseer de bedrijfssituatie in zakelijke CEO-taal. Max 250 woorden, korte alinea's.
 
-Analyseer dit in zakelijke taal, alsof je tegen een CEO spreekt. 
-Schrijf 300–400 woorden, verdeeld in duidelijke blokken. 
-Gebruik korte alinea's (3–5 zinnen), geen bullets. 
+Structuur:
+1. **Probleem** - Kern in 2-3 zinnen + één expert-invalshoek
+2. **Impact** - Financiële gevolgen (omzet/marge/ROI) in 2-3 zinnen  
+3. **Kans** - Gemiste groei + concreet %-potentieel in 2-3 zinnen
+4. **Next Step** - Direct advies in 2 zinnen
 
-Structuur van de output:
-
-1. **Probleem**  
-   Beschrijf de kern van het probleem in 3–4 zinnen. 
-   Voeg minimaal één specialistische invalshoek toe (bijv. "Volgens Ritson…").  
-
-2. **Impact**  
-   Leg de consequenties concreet uit in 3–4 zinnen: omzet, marge, ROI, teamdynamiek. 
-   Gebruik waar relevant een expertkader (bv. Kotler, Drucker).  
-
-3. **Kans**  
-   Beschrijf in 3–4 zinnen de commerciële kansen die gemist worden. 
-   Benoem concreet mogelijke verbeterpercentages of groeiruimte. 
-   Geef hier minimaal één expertreferentie (bv. Sharp, Christensen).  
-
-4. **AI-inzet** (optioneel, alleen als er AI/Funnel-informatie aanwezig is)  
-   Leg in 2–3 zinnen uit hoe AI praktisch ingezet kan worden als versneller. 
-   Wees concreet (bijv. lead scoring, pricing, content).  
-
-5. **Next Step**  
-   Sluit af met 2–3 zinnen die duidelijk maken wat de organisatie NU moet doen. 
-   Formuleer dit als direct advies, resultaatgericht en met urgentie.  
-
-Schrijf kort, zakelijk en concreet. Geen consultancy-jargon, geen vage taal. 
-De hele output moet tussen de 300 en 400 woorden zijn.`;
+Schrijf scherp, zakelijk, resultaatgericht. Geen jargon.`;
 
         const userQuery = `Analyseer de volgende situatie:
 - Branche: ${industry}
@@ -88,10 +63,10 @@ De hele output moet tussen de 300 en 400 woorden zijn.`;
             contents: [{ parts: [{ text: userQuery }] }],
             systemInstruction: { parts: [{ text: systemPrompt }] },
             generationConfig: {
-                temperature: 0.7,
-                maxOutputTokens: 600,
-                topP: 0.8,
-                topK: 40
+                temperature: 0.8,
+                maxOutputTokens: 400,
+                topP: 0.9,
+                topK: 30
             }
         };
 
