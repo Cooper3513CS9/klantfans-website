@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>OG Image Generator - KlantFans</title>
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            padding: 20px;
+            background: #f0f0f0;
+        }
+        canvas {
+            border: 2px solid #333;
+            display: block;
+            margin: 20px auto;
+            background: white;
+        }
+        .controls {
+            max-width: 1200px;
+            margin: 0 auto;
+            text-align: center;
+        }
+        button {
+            background: #dd6b20;
+            color: white;
+            border: none;
+            padding: 15px 30px;
+            font-size: 16px;
+            border-radius: 8px;
+            cursor: pointer;
+            margin: 10px;
+        }
+        button:hover {
+            background: #c05621;
+        }
+    </style>
+</head>
+<body>
+    <div class="controls">
+        <h1>KlantFans OG-Image Generator</h1>
+        <p>Klik op "Generate" om de Open Graph afbeelding te maken, dan "Download"</p>
+        <button onclick="generateImage()">Generate OG-Image</button>
+        <button onclick="downloadImage()">Download as og-image.jpg</button>
+    </div>
+    
+    <canvas id="canvas" width="1200" height="630"></canvas>
+
+    <script>
+        const canvas = document.getElementById('canvas');
+        const ctx = canvas.getContext('2d');
+
+        function generateImage() {
+            // Background gradient
+            const gradient = ctx.createLinearGradient(0, 0, 1200, 630);
+            gradient.addColorStop(0, '#1a2a4c');
+            gradient.addColorStop(1, '#2d4a7c');
+            ctx.fillStyle = gradient;
+            ctx.fillRect(0, 0, 1200, 630);
+
+            // Orange accent bar
+            ctx.fillStyle = '#dd6b20';
+            ctx.fillRect(0, 0, 20, 630);
+
+            // Logo/Brand text
+            ctx.font = 'bold 72px Inter, sans-serif';
+            ctx.fillStyle = '#ffffff';
+            ctx.fillText('Klant', 80, 150);
+            
+            ctx.fillStyle = '#dd6b20';
+            ctx.fillText('Fans', 280, 150);
+
+            // Tagline
+            ctx.font = '36px Inter, sans-serif';
+            ctx.fillStyle = '#ffffff';
+            ctx.fillText('Commercieel Strateeg & Turnaround Specialist', 80, 220);
+
+            // Main headline
+            ctx.font = 'bold 48px Inter, sans-serif';
+            ctx.fillStyle = '#ffffff';
+            const headline = 'Is uw commercie de motor';
+            ctx.fillText(headline, 80, 320);
+            ctx.fillText('of de rem op uw groei?', 80, 380);
+
+            // Stats boxes
+            drawStatBox(80, 450, '25+', 'Jaar Ervaring');
+            drawStatBox(350, 450, '9,7', 'Best Score NL');
+            drawStatBox(620, 450, '5', 'A-Merk Cases');
+
+            // Footer
+            ctx.font = '24px Inter, sans-serif';
+            ctx.fillStyle = '#aaaaaa';
+            ctx.fillText('klantfans.nl', 80, 580);
+
+            // Rocket emoji
+            ctx.font = '80px Arial';
+            ctx.fillText('🚀', 1050, 150);
+        }
+
+        function drawStatBox(x, y, value, label) {
+            // Box background
+            ctx.fillStyle = 'rgba(255, 255, 255, 0.1)';
+            ctx.fillRect(x, y, 240, 100);
+
+            // Value
+            ctx.font = 'bold 42px Inter, sans-serif';
+            ctx.fillStyle = '#dd6b20';
+            ctx.fillText(value, x + 20, y + 50);
+
+            // Label
+            ctx.font = '18px Inter, sans-serif';
+            ctx.fillStyle = '#ffffff';
+            ctx.fillText(label, x + 20, y + 80);
+        }
+
+        function downloadImage() {
+            const link = document.createElement('a');
+            link.download = 'og-image.jpg';
+            link.href = canvas.toDataURL('image/jpeg', 0.95);
+            link.click();
+        }
+
+        // Auto-generate on load
+        window.onload = generateImage;
+    </script>
+</body>
+</html>
+

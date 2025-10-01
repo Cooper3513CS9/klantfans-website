@@ -10,7 +10,7 @@
 ### Stap 2: Git Repository
 1. Maak een nieuwe Git repository:
    ```bash
-   cd /Users/rbeute/KlantFans
+   cd /Users/rbeute/klantfans-cms/klantfans-website
    git init
    git add .
    git commit -m "Initial commit: KlantFans landing page"
@@ -72,7 +72,7 @@ mv api/analyze.js netlify/functions/analyze.js
 ```
 
 ### Stap 4: Update HTML
-Open `klantfans-landing.html` en zoek regel 597:
+Open `index.html` en zoek regel 703:
 ```javascript
 // Was:
 const apiEndpoint = '/api/analyze';

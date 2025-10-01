@@ -72,11 +72,13 @@ Professionele landing page voor KlantFans - Commercieel Strateeg & Turnaround Sp
 
 ```
 KlantFans/
-├── klantfans-landing.html    # Hoofdpagina
+├── index.html                # Hoofdpagina
 ├── api/
 │   └── analyze.js            # Serverless API endpoint (Vercel)
 ├── images/
-│   └── logos/                # Client logos
+│   ├── logos/                # Client logos
+│   ├── ronald-beute.jpg      # Profielfoto
+│   └── og-image.jpg          # Open Graph afbeelding
 ├── vercel.json               # Vercel configuratie
 └── README.md                 # Deze file
 ```
@@ -96,7 +98,7 @@ echo "GEMINI_API_KEY=your_api_key_here" > .env.local
 ```
 
 ### Zonder serverless function:
-Open gewoon `klantfans-landing.html` in je browser. De AI scan werkt niet zonder backend, maar de rest van de site wel.
+Open gewoon `index.html` in je browser. De AI scan werkt niet zonder backend, maar de rest van de site wel.
 
 ## 📋 Checklist voor Live Gang
 
