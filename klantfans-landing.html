@@ -1,0 +1,652 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <!-- SEO Meta Tags -->
+    <title>KlantFans - Commercieel Strateeg & Turnaround Specialist | Ronald Beute</title>
+    <meta name="description" content="Uw commercie is de motor of de rem op uw groei. Ik bouw stagnerende operaties om tot voorspelbare groeimotoren. 25+ jaar ervaring met A-merken en scale-ups.">
+    <meta name="keywords" content="commerciële turnaround, groeistrateeg, commercieel strateeg, sales strategie, marketing strategie, B2B groei, scale-up, turnaround specialist">
+    <meta name="author" content="Ronald Beute">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://klantfans.nl">
+    
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://klantfans.nl">
+    <meta property="og:title" content="KlantFans - Commercieel Strateeg & Turnaround Specialist">
+    <meta property="og:description" content="Bouw uw stagnerende commerciële operatie om tot een voorspelbare groeimotor. 25+ jaar ervaring met RegioBank, Feyenoord, en scale-ups.">
+    <meta property="og:image" content="https://klantfans.nl/images/og-image.jpg">
+    
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://klantfans.nl">
+    <meta property="twitter:title" content="KlantFans - Commercieel Strateeg & Turnaround Specialist">
+    <meta property="twitter:description" content="Bouw uw stagnerende commerciële operatie om tot een voorspelbare groeimotor.">
+    <meta property="twitter:image" content="https://klantfans.nl/images/og-image.jpg">
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='0.9em' font-size='90'>🚀</text></svg>">
+    
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            scroll-behavior: smooth;
+        }
+        .hero-bg {
+            background-color: #f7fafc;
+        }
+        .text-navy { color: #1a2a4c; }
+        .bg-navy { background-color: #1a2a4c; }
+        .accent-orange { color: #dd6b20; }
+        .bg-accent-orange { background-color: #dd6b20; }
+        .hover-bg-accent-orange-dark:hover { background-color: #c05621; }
+
+        .client-logo {
+            opacity: 1;
+            transition: all 0.3s ease;
+        }
+        .client-logo:hover {
+            transform: scale(1.1);
+            opacity: 1;
+        }
+        .cta-button {
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+        .cta-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 7px 14px rgba(0,0,0,0.1);
+        }
+        @keyframes spin {
+            to { transform: rotate(360deg); }
+        }
+        .spinner {
+            border: 4px solid rgba(0, 0, 0, 0.1);
+            width: 36px;
+            height: 36px;
+            border-radius: 50%;
+            border-left-color: #dd6b20;
+            animation: spin 1s ease infinite;
+        }
+        .input-error {
+            border-color: #dc2626 !important;
+            background-color: #fef2f2 !important;
+        }
+        .error-message {
+            color: #dc2626;
+            font-size: 0.875rem;
+            margin-top: 0.25rem;
+            display: none;
+        }
+        .error-message.show {
+            display: block;
+        }
+        #cookie-banner {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: rgba(26, 42, 76, 0.98);
+            backdrop-filter: blur(10px);
+            z-index: 1000;
+            transform: translateY(100%);
+            transition: transform 0.3s ease;
+        }
+        #cookie-banner.show {
+            transform: translateY(0);
+        }
+    </style>
+</head>
+<body class="bg-white text-gray-800">
+
+    <!-- Navigatiebalk -->
+    <header class="bg-white shadow-sm sticky top-0 z-50">
+        <nav class="container mx-auto px-6 py-4 flex justify-between items-center">
+            <a href="#home" class="text-2xl font-extrabold text-navy">Klant<span class="accent-orange">Fans</span></a>
+            <div class="hidden md:flex items-center space-x-8">
+                <a href="#probleem" class="text-gray-600 hover:text-navy font-medium transition duration-300">Uw Probleem</a>
+                <a href="#scan" class="text-gray-600 hover:text-navy font-medium transition duration-300">Analyse</a>
+                <a href="#oplossing" class="text-gray-600 hover:text-navy font-medium transition duration-300">De Oplossing</a>
+                <a href="#cases" class="text-gray-600 hover:text-navy font-medium transition duration-300">Het Bewijs</a>
+                <a href="#scan" class="bg-accent-orange text-white font-bold py-2 px-5 rounded-full hover-bg-accent-orange-dark cta-button">Start de Turnaround</a>
+            </div>
+            <div class="md:hidden">
+                <button id="menu-btn" class="text-navy focus:outline-none">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path></svg>
+                </button>
+            </div>
+        </nav>
+        <!-- Mobiel menu -->
+        <div id="mobile-menu" class="hidden md:hidden">
+            <a href="#probleem" class="block py-2 px-4 text-sm text-gray-700 hover:bg-gray-50">Uw Probleem</a>
+            <a href="#scan" class="block py-2 px-4 text-sm text-gray-700 hover:bg-gray-50">Analyse</a>
+            <a href="#oplossing" class="block py-2 px-4 text-sm text-gray-700 hover:bg-gray-50">De Oplossing</a>
+            <a href="#cases" class="block py-2 px-4 text-sm text-gray-700 hover:bg-gray-50">Het Bewijs</a>
+            <a href="#scan" class="block py-2 px-4 text-sm text-gray-700 hover:bg-gray-50">Start de Turnaround</a>
+        </div>
+    </header>
+
+    <!-- Hero Sectie -->
+    <section id="home" class="hero-bg pt-20 pb-24">
+        <div class="container mx-auto px-6">
+            <div class="max-w-5xl mx-auto grid md:grid-cols-2 gap-12 items-center">
+                <div class="text-center md:text-left">
+                    <h1 class="text-4xl md:text-5xl font-extrabold text-navy mb-4 leading-tight">Is uw commercie de motor of de rem op uw groei?</h1>
+                    <p class="text-lg md:text-xl text-gray-700 mb-8">Als het antwoord niet overtuigend 'motor' is, is het tijd voor een commerciële turnaround. Ik bouw uw stagnerende operatie om tot een voorspelbare groeimotor die zichzelf terugverdient.</p>
+                    <a href="#oplossing" class="bg-accent-orange text-white font-bold py-3 px-8 rounded-full hover-bg-accent-orange-dark cta-button text-base inline-block">Mijn Aanpak</a>
+                </div>
+                <div class="flex justify-center flex-col items-center">
+                    <div class="relative w-52 h-52 md:w-64 md:h-64 rounded-full border-4 border-white shadow-2xl overflow-hidden">
+                        <img id="profile-image" src="https://placehold.co/256x256/1a2a4c/FFFFFF?text=RB" alt="Ronald Beute - Commercieel Strateeg & Turnaround Specialist" class="w-full h-full object-cover" style="object-position: center 25%;" loading="eager">
+                    </div>
+                    <div class="text-center mt-4">
+                        <h2 class="text-2xl font-bold text-navy">Ronald Beute</h2>
+                        <p class="text-sm text-gray-600">Commercieel Strateeg & Turnaround Specialist</p>
+                    </div>
+                    <input type="file" id="upload-input" class="hidden" accept="image/png, image/jpeg">
+                    <label for="upload-input" id="upload-label" class="mt-4 bg-navy text-white font-bold py-2 px-4 rounded-full hover:bg-gray-800 cta-button text-sm cursor-pointer">
+                        Upload Eigen Foto
+                    </label>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Klantenbalk -->
+    <section id="klanten" class="py-12 bg-gray-50">
+        <div class="container mx-auto px-6">
+            <div class="text-center">
+                <h3 class="text-sm font-bold uppercase text-gray-500 tracking-wider mb-8">Van A-Merk Turnarounds tot Scale-Up Acceleratie</h3>
+                <div class="flex flex-wrap justify-center items-center gap-x-12 gap-y-8">
+                    <img src="https://a.espncdn.com/combiner/i?img=/i/teamlogos/soccer/500/173.png" alt="Feyenoord - Commerciële transformatie en digitalisering" class="h-12 w-auto client-logo" loading="lazy">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/bf/RegioBank_logo_%282018%29.png/320px-RegioBank_logo_%282018%29.png" alt="RegioBank - Van 6.9 naar 9.7 klantwaardering" class="h-8 w-auto client-logo" loading="lazy">
+                    <img src="https://media.licdn.com/dms/image/v2/C4D0BAQHY6t4Pj3K9bQ/company-logo_200_200/company-logo_200_200/0/1631303208123?e=2147483647&v=beta&t=7g3pKqG3zYTXyqMx8KJVvQBRH7I4M0zPYJnCxE0iQ-Q" alt="Newton Energy Solutions - Commerciële salesfunnel en strategie" class="h-8 w-auto client-logo bg-gray-100 px-2 py-1 rounded" loading="lazy">
+                    <img src="https://www.star-shl.nl/static/logo-8e95f0c4c8bfc6ac0d076da6e5a81f35.png" alt="Star-shl - Marketing transformatie healthcare diagnostiek" class="h-10 w-auto client-logo" loading="lazy">
+                    <img src="images/logos/zentrack.png" alt="ZenTrack - SaaS startup voor huisartsenpraktijken" class="h-10 w-auto client-logo" loading="lazy">
+                </div>
+            </div>
+        </div>
+    </section>
+
+     <!-- Probleem Sectie -->
+    <section id="probleem" class="py-20">
+        <div class="container mx-auto px-6">
+            <div class="max-w-5xl mx-auto text-center">
+                <h2 class="text-3xl font-bold text-navy mb-6">Veel Beweging, Weinig Groei: De Pijn van een Stagnerende Operatie</h2>
+                <p class="text-lg text-gray-700 leading-relaxed mb-12 max-w-3xl mx-auto">U investeert in mensen, middelen en marketing, maar de P&L reflecteert de inspanning niet. Het team is druk, de ROI onzichtbaar en u mist de commerciële grip. Dit is geen afdelingsprobleem; het is een rem op uw totale bedrijfsgroei.</p>
+                 <div class="grid grid-cols-1 md:grid-cols-3 gap-8 text-left">
+                    <div class="bg-gray-50 p-6 rounded-lg border-l-4 border-accent-orange">
+                        <h3 class="font-bold text-navy text-xl mb-2">Als CEO/DGA...</h3>
+                        <p class="text-gray-600">...investeert u fors in een commerciële 'black box' en mist u de harde cijfers die de bijdrage aan de P&L bewijzen.</p>
+                    </div>
+                     <div class="bg-gray-50 p-6 rounded-lg border-l-4 border-accent-orange">
+                        <h3 class="font-bold text-navy text-xl mb-2">Als Oprichter...</h3>
+                        <p class="text-gray-600">...heeft u senior denkkracht nodig om op te schalen, maar niet de lasten van een fulltime CMO van €150k+.</p>
+                    </div>
+                     <div class="bg-gray-50 p-6 rounded-lg border-l-4 border-accent-orange">
+                        <h3 class="font-bold text-navy text-xl mb-2">Als Investeerder...</h3>
+                        <p class="text-gray-600">...moet een portfoliobedrijf snel professionaliseren om de groeidoelen en de exit-waarde te maximaliseren.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Oplossing Sectie -->
+    <section id="oplossing" class="py-20 bg-gray-50">
+        <div class="container mx-auto px-6">
+            <div class="text-center max-w-4xl mx-auto">
+                <h2 class="text-3xl font-bold text-navy mb-4">De Oplossing: De Commerciële Turnaround</h2>
+                 <p class="text-lg text-gray-700 mb-12">Ik ben geen consultant die een rapport achterlaat. Ik stap in uw operatie, neem de leiding en bouw de commerciële motor die u nu mist. Het resultaat is geen plan, maar voorspelbare groei op uw P&L.</p>
+            </div>
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-6xl mx-auto">
+                <div class="bg-white p-8 rounded-lg text-left border transform hover:-translate-y-2 transition-transform duration-300 shadow-sm hover:shadow-xl">
+                    <h3 class="text-2xl font-bold text-navy mb-3">1. Diagnose</h3>
+                    <p class="text-gray-600">Ik leg de zwaktes in uw volledige commerciële operatie bloot: van prijsstrategie en salesproces tot marketing en teamcapaciteit.</p>
+                </div>
+                <div class="bg-white p-8 rounded-lg text-left border transform hover:-translate-y-2 transition-transform duration-300 shadow-sm hover:shadow-xl">
+                    <h3 class="text-2xl font-bold text-navy mb-3">2. Structuur</h3>
+                    <p class="text-gray-600">Ik bouw een datagedreven fundament voor groei. Commerciële KPI's, efficiënte processen en een team dat de P&L-impact begrijpt.</p>
+                </div>
+                <div class="bg-white p-8 rounded-lg text-left border transform hover:-translate-y-2 transition-transform duration-300 shadow-sm hover:shadow-xl">
+                    <h3 class="text-2xl font-bold text-navy mb-3">3. Executie</h3>
+                    <p class="text-gray-600">Ik neem de leiding over de turnaround. Ik stuur aan, coach en zorg voor implementatie todat de resultaten zichtbaar zijn op uw P&L.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Gemini API Sectie: Turnaround Scan -->
+    <section id="scan" class="py-20">
+        <div class="container mx-auto px-6">
+            <div class="max-w-3xl mx-auto text-center">
+                <h2 class="text-3xl font-bold text-navy mb-4">Gratis Turnaround Potentieel Scan ✨</h2>
+                <p class="text-lg text-gray-700 mb-8">Voer uw gegevens in en ontvang direct een eerste analyse van uw grootste commerciële groeikansen.</p>
+
+                <div class="bg-white p-8 rounded-lg border shadow-lg text-left">
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-4">
+                        <div>
+                            <label for="user-name" class="block text-sm font-medium text-gray-700">Uw Naam <span class="text-red-500">*</span></label>
+                            <input type="text" id="user-name" class="mt-1 block w-full px-3 py-2 bg-white border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-accent-orange focus:border-accent-orange" placeholder="B.v. Alex de Groot" required aria-required="true">
+                            <p class="error-message" id="user-name-error">Dit veld is verplicht</p>
+                        </div>
+                        <div>
+                            <label for="company-name" class="block text-sm font-medium text-gray-700">Bedrijfsnaam <span class="text-red-500">*</span></label>
+                            <input type="text" id="company-name" class="mt-1 block w-full px-3 py-2 bg-white border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-accent-orange focus:border-accent-orange" placeholder="B.v. GroeiX BV" required aria-required="true">
+                            <p class="error-message" id="company-name-error">Dit veld is verplicht</p>
+                        </div>
+                        <div>
+                            <label for="industry" class="block text-sm font-medium text-gray-700">Branche <span class="text-red-500">*</span></label>
+                            <input type="text" id="industry" class="mt-1 block w-full px-3 py-2 bg-white border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-accent-orange focus:border-accent-orange" placeholder="B.v. B2B SaaS, Retail, Zorg" required aria-required="true">
+                            <p class="error-message" id="industry-error">Dit veld is verplicht</p>
+                        </div>
+                        <div>
+                            <label for="company-size" class="block text-sm font-medium text-gray-700">Bedrijfsgrootte (FTE)</label>
+                            <select id="company-size" class="mt-1 block w-full px-3 py-2 bg-white border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-accent-orange focus:border-accent-orange">
+                                <option>1-10</option>
+                                <option>11-50</option>
+                                <option>51-250</option>
+                                <option>250+</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="mb-6">
+                         <label for="challenge" class="block text-sm font-medium text-gray-700 mb-2">Uw #1 Commerciële Uitdaging <span class="text-red-500">*</span></label>
+                        <div class="text-xs text-gray-500 mb-2 p-3 bg-gray-50 rounded-md border">
+                            <p class="font-semibold">Gebruik deze structuur voor de scherpste analyse:</p>
+                            <ol class="list-decimal list-inside mt-1">
+                                <li><strong>Het Probleem:</strong> Wat is de kern van de commerciële pijn?</li>
+                                <li><strong>De Impact:</strong> Wat is het financiële gevolg (omzet, marge)?</li>
+                                <li><strong>De Frustratie:</strong> Waar zit de interne frictie?</li>
+                            </ol>
+                        </div>
+                        <textarea id="challenge" rows="6" class="mt-1 block w-full px-3 py-2 bg-white border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-accent-orange focus:border-accent-orange" placeholder="B.v. Onze sales pipeline is onvoorspelbaar, waardoor we 20% van ons omzetdoel missen en marketing en sales elkaar de schuld geven..." required aria-required="true"></textarea>
+                        <p class="error-message" id="challenge-error">Dit veld is verplicht</p>
+                    </div>
+                    <button id="analyze-btn" class="w-full bg-accent-orange text-white font-bold py-3 px-8 rounded-full hover-bg-accent-orange-dark cta-button text-lg flex items-center justify-center">
+                        Analyseer mijn Groeipotentieel
+                    </button>
+
+                    <div id="gemini-result-container" class="mt-8" style="display: none;">
+                        <div id="gemini-loading" class="flex justify-center items-center">
+                            <div class="spinner"></div>
+                        </div>
+                        <div id="gemini-output" class="bg-gray-50 p-6 rounded-md border-l-4 border-navy" style="display: none;">
+                            <h4 class="text-lg font-bold text-navy mb-2">Eerste Analyse:</h4>
+                            <p class="text-gray-800 whitespace-pre-wrap"></p>
+                        </div>
+                        <div id="scan-follow-up" class="mt-6 text-center" style="display: none;">
+                            <h3 class="text-xl font-bold text-navy">Deze analyse is de start. De echte turnaround begint met een plan.</h3>
+                            <p class="text-gray-700 my-4">Deze AI-scan onthult de symptomen. In een 30-minuten strategiesessie leg ik de onderliggende ziekte bloot en schets ik de eerste stappen van een concreet turnaround plan.</p>
+                             <a id="whatsapp-follow-up" href="#" target="_blank" class="bg-navy text-white font-bold py-3 px-8 rounded-full hover:bg-gray-800 cta-button text-lg inline-block">Plan uw Gratis Strategiesessie</a>
+                        </div>
+                         <div id="gemini-error" class="bg-red-100 p-4 rounded-md border-l-4 border-red-500 text-red-800" style="display: none;">
+                            <strong>Er is iets misgegaan.</strong>
+                            <p class="mt-1 text-sm" id="error-details">Probeer het later opnieuw of neem contact op via <a href="mailto:ronald@klantfans.nl" class="underline">ronald@klantfans.nl</a></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Ervaring Sectie -->
+    <section id="ervaring" class="py-20 bg-gray-50">
+        <div class="container mx-auto px-6">
+            <div class="max-w-4xl mx-auto text-center">
+                <h2 class="text-3xl font-bold text-navy mb-4">Gefundeerd in 25+ Jaar Commerciële Ervaring</h2>
+                <p class="text-lg text-gray-700">Mijn aanpak is gefundeerd in 25+ jaar commerciële ervaring, van A-merk directiekamers (RegioBank, ING, G4S) tot de frontlinie van tech startups. Als founder van ZenTrack, een SaaS-oplossing voor huisartspraktijken, heb ik zelf de commerciële uitdagingen van product-market fit, prijsstrategie en het bouwen van een schaalbare salesfunnel doorleefd. Deze unieke combinatie van corporate strategie en startup-executie pas ik vandaag de dag toe op A-merken en ambitieuze groeiers.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Prijzen Sectie -->
+    <section id="prijzen" class="py-20">
+        <div class="container mx-auto px-6">
+            <div class="max-w-5xl mx-auto text-center">
+                <h2 class="text-3xl font-bold text-navy mb-12">Objectieve Erkenning & Prijzen</h2>
+                <div class="grid grid-cols-2 md:grid-cols-4 gap-8 items-center">
+                    <div class="text-center">
+                        <img src="https://cloudfront.consumentenbond.nl/binaries/content/gallery/cbhippowebsite/over-ons/werken-bij-de-consumentenbond/afbeeldingen/logo-consumentenbond-email.png" alt="Consumentenbond - Beste Bank award" class="h-10 mx-auto mb-3" loading="lazy">
+                        <h4 class="font-bold text-navy">Beste Bank van NL</h4>
+                        <p class="text-gray-600 text-sm">(Cijfer 9,7)</p>
+                    </div>
+                     <div class="text-center">
+                        <img src="https://marketresponse.nl/wp-content/uploads/2024/02/MR-KVB-logo_van-Nederland_nieuw_DEF.png" alt="Klantvriendelijkste Bedrijf van Nederland award" class="h-12 mx-auto mb-3" loading="lazy">
+                        <h4 class="font-bold text-navy">Klantvriendelijkste Bank</h4>
+                         <p class="text-gray-600 text-sm">(Branchewinnaar)</p>
+                    </div>
+                     <div class="text-center">
+                         <img src="https://i.ibb.co/L5B7P4z/logo-wvj.png" alt="Website van het Jaar award" class="h-12 mx-auto mb-3" loading="lazy">
+                        <h4 class="font-bold text-navy">Website van het Jaar</h4>
+                         <p class="text-gray-600 text-sm">(Categorie Banken)</p>
+                    </div>
+                     <div class="text-center">
+                         <img src="https://cdn.brandfetch.io/id8afMwB-Q/w/2394/h/742/theme/dark/logo.png" alt="NIMA - Dutch Marketing Awards finalist" class="h-10 mx-auto mb-3" loading="lazy">
+                        <h4 class="font-bold text-navy">Finalist Marketing Co.</h4>
+                         <p class="text-gray-600 text-sm">(Dutch Marketing Awards)</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Cases Sectie -->
+    <section id="cases" class="py-20 bg-gray-50">
+        <div class="container mx-auto px-6">
+            <div class="text-center max-w-4xl mx-auto">
+                <h2 class="text-3xl font-bold text-navy mb-4">Het Bewijs: Recente Turnarounds</h2>
+            </div>
+            <div class="grid md:grid-cols-2 gap-10 max-w-5xl mx-auto mt-12">
+                <div class="bg-white rounded-lg overflow-hidden border flex flex-col">
+                    <div class="p-6 flex-grow">
+                        <h3 class="text-xl font-bold text-navy mb-1">RegioBank</h3>
+                        <p class="text-sm font-semibold text-gray-500 mb-4 uppercase tracking-wider">FINANCE</p>
+                        <p class="text-gray-700 mb-2"><strong class="text-navy">Bedrijfsprobleem:</strong> Een onbekend B2B-label transformeren naar de meest klantvriendelijke B2B2C-bank van Nederland, met 540 franchisers als cruciaal kanaal.</p>
+                        <p class="text-gray-700"><strong class="text-navy">Resultaat:</strong> Klantwaardering gestegen van 6,9 naar 9,7. NPS van negatief naar +17. Naamsbekendheid van 31% naar 76%. Een complete commerciële en merk-turnaround.</p>
+                    </div>
+                </div>
+                <div class="bg-white rounded-lg overflow-hidden border flex flex-col">
+                    <div class="p-6 flex-grow">
+                        <h3 class="text-xl font-bold text-navy mb-1">Feyenoord</h3>
+                        <p class="text-sm font-semibold text-gray-500 mb-4 uppercase tracking-wider">TOPSPORT</p>
+                        <p class="text-gray-700 mb-2"><strong class="text-navy">Bedrijfsprobleem:</strong> Noodzaak voor een digitale en commerciële professionaliseringsslag. Een versnipperd team van 55 FTE omvormen tot een geïntegreerde Marketing & Media motor.</p>
+                        <p class="text-gray-700"><strong class="text-navy">Resultaat:</strong> Nieuwe teamstructuren en processen geïmplementeerd. Digitale transformatie versneld en de commerciële slagkracht van de afdeling significant verhoogd, direct bijdragend aan imago- en omzetdoelstellingen.</p>
+                    </div>
+                </div>
+                <div class="bg-white rounded-lg overflow-hidden border flex flex-col">
+                    <div class="p-6 flex-grow">
+                        <h3 class="text-xl font-bold text-navy mb-1">Star-shl</h3>
+                        <p class="text-sm font-semibold text-gray-500 mb-4 uppercase tracking-wider">HEALTHCARE</p>
+                        <p class="text-gray-700 mb-2"><strong class="text-navy">Bedrijfsprobleem:</strong> Commerciële strategie kon de klinische expertise van deze toonaangevende diagnostische speler (1.300 medewerkers) niet bijbenen, wat resulteerde in gemiste groei en een reactieve marktbenadering.</p>
+                        <p class="text-gray-700"><strong class="text-navy">Resultaat:</strong> Een nieuw, professioneel marketingfundament gebouwd. Van een schaalbare campagnestructuur tot de succesvolle marktintroductie van een nieuwe propositie (bloedafname bij kinderen).</p>
+                    </div>
+                </div>
+                <div class="bg-white rounded-lg overflow-hidden border flex flex-col">
+                    <div class="p-6 flex-grow">
+                        <h3 class="text-xl font-bold text-navy mb-1">Newton Energy Solutions</h3>
+                        <p class="text-sm font-semibold text-gray-500 mb-4 uppercase tracking-wider">SCALE-UP / ENERGIETRANSITIE</p>
+                        <p class="text-gray-700 mb-2"><strong class="text-navy">Bedrijfsprobleem:</strong> Een innovatieve startup in de validatiefase zonder een voorspelbare commerciële aanpak om de markt te veroveren en investeerders te overtuigen.</p>
+                        <p class="text-gray-700"><strong class="text-navy">Resultaat:</strong> Prijs- en waardestrategie gevalideerd. Een meetbare, voorspelbare salesfunnel gebouwd en een professioneel lead-opvolgingsproces geïmplementeerd als fundament voor verdere opschaling.</p>
+                    </div>
+                </div>
+                <div class="bg-white rounded-lg overflow-hidden border flex flex-col">
+                    <div class="p-6 flex-grow">
+                        <h3 class="text-xl font-bold text-navy mb-1">B2B DIENSTEN / ABONNEMENTEN</h3>
+                        <p class="text-sm font-semibold text-gray-500 mb-4 uppercase tracking-wider">Groei Ontgrendeld (NDA)</p>
+                        <p class="text-gray-700 mb-2"><strong class="text-navy">Bedrijfsprobleem:</strong> Een B2B-dienstverlener met een sterk product, maar een inefficiënt partnerkanaal en een verouderd abonnementsmodel dat marge erodeerde en groei stagneerde.</p>
+                        <p class="text-gray-700"><strong class="text-navy">Resultaat:</strong> Partnerkanaal gerevitaliseerd met nieuwe incentives. Prijs- en abonnementsmodel volledig geherstructureerd, wat resulteerde in een directe stijging van de Customer Lifetime Value (CLV) en een voorspelbare, schaalbare omzetgroei.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact / CTA Sectie -->
+    <section id="contact" class="py-24 bg-navy">
+        <div class="container mx-auto px-6 text-center">
+            <h2 class="text-3xl md:text-4xl font-bold text-white mb-6">Klaar om van uw commercie een groeimotor te maken?</h2>
+            <p class="text-lg text-gray-300 mb-10 max-w-2xl mx-auto">De eerste stap is geen lang traject, maar een directe strategiesessie. Ik analyseer uw situatie en geef u direct een eerlijk oordeel over het turnaround-potentieel.</p>
+            <a href="#scan" class="bg-accent-orange text-white font-bold py-4 px-10 rounded-full hover-bg-accent-orange-dark cta-button text-xl inline-block">Start de Diagnose</a>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-100 py-8">
+        <div class="container mx-auto px-6 text-center text-gray-600">
+            <p>&copy; 2025 KlantFans | Ronald Beute - Commercieel Strateeg & Turnaround Specialist</p>
+            <p class="text-sm mt-2">KvK: 87779498 | BTW: NL004476443B66</p>
+            <p class="text-xs mt-2">
+                <a href="#privacy" class="hover:text-navy underline" onclick="showPrivacyModal(); return false;">Privacy & AVG</a> | 
+                <a href="#algemene-voorwaarden" class="hover:text-navy underline ml-2" onclick="alert('Algemene voorwaarden worden binnenkort toegevoegd.'); return false;">Algemene Voorwaarden</a>
+            </p>
+             <div class="mt-4 flex justify-center items-center space-x-4">
+                <a href="https://www.linkedin.com/in/ronald-beute/" target="_blank" rel="noopener noreferrer" class="text-gray-500 hover:text-navy" aria-label="LinkedIn profiel Ronald Beute">
+                    <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z" clip-rule="evenodd"/></svg>
+                </a>
+                <a href="mailto:ronald@klantfans.nl" class="text-gray-500 hover:text-navy" aria-label="E-mail naar Ronald Beute">
+                    <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24"><path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 14H4V8l8 5 8-5v10zm-8-7L4 6h16l-8 5z"/></svg>
+                </a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Cookie Banner -->
+    <div id="cookie-banner" class="show">
+        <div class="container mx-auto px-6 py-4 flex flex-col md:flex-row items-center justify-between text-white">
+            <div class="mb-4 md:mb-0 md:mr-8">
+                <p class="text-sm">
+                    <strong>🍪 Privacy & Cookies</strong><br class="md:hidden">
+                    We gebruiken alleen noodzakelijke cookies voor de werking van deze website. Uw gegevens worden veilig behandeld conform AVG-regelgeving.
+                    <a href="#privacy" onclick="showPrivacyModal(); return false;" class="underline ml-1">Lees meer</a>
+                </p>
+            </div>
+            <button id="accept-cookies" class="bg-accent-orange hover-bg-accent-orange-dark text-white font-bold py-2 px-6 rounded-full cta-button whitespace-nowrap">
+                Begrepen
+            </button>
+        </div>
+    </div>
+
+    <script>
+        // Privacy Modal functie (globaal)
+        function showPrivacyModal() {
+            const message = `📋 Privacy & AVG Verklaring - KlantFans
+
+Uw privacy is belangrijk voor ons. Deze website verzamelt minimale gegevens:
+
+🔒 Wat we verzamelen:
+- Alleen de gegevens die u vrijwillig invult in het analysefomulier
+- LocalStorage voor profielfoto (alleen lokaal op uw apparaat)
+- Cookie voor cookie-banner voorkeur (noodzakelijk)
+
+✅ Wat we NIET doen:
+- Geen tracking cookies
+- Geen Google Analytics of vergelijkbare tools
+- Geen verkoop van gegevens aan derden
+- Geen profiling
+
+📧 Gebruik van gegevens:
+Uw ingevulde gegevens worden alleen gebruikt om:
+1. Een AI-analyse te genereren van uw commerciële uitdaging
+2. Contact met u op te nemen voor een strategiesessie (indien u dat wenst)
+
+🗑️ Uw rechten:
+U heeft recht op inzage, correctie en verwijdering van uw gegevens.
+Neem hiervoor contact op: ronald@klantfans.nl
+
+📍 Verantwoordelijke:
+KlantFans | Ronald Beute
+KvK: 87779498 | BTW: NL004476443B66
+
+Laatst bijgewerkt: Oktober 2025`;
+            
+            alert(message);
+        }
+
+        document.addEventListener('DOMContentLoaded', function () {
+            // Cookie Banner
+            const cookieBanner = document.getElementById('cookie-banner');
+            const acceptCookiesBtn = document.getElementById('accept-cookies');
+            
+            if (localStorage.getItem('klantfansCookiesAccepted') === 'true') {
+                cookieBanner.classList.remove('show');
+            }
+            
+            acceptCookiesBtn.addEventListener('click', function() {
+                localStorage.setItem('klantfansCookiesAccepted', 'true');
+                cookieBanner.classList.remove('show');
+            });
+
+            // Mobile menu toggle
+            document.getElementById('menu-btn').addEventListener('click', function() {
+                document.getElementById('mobile-menu').classList.toggle('hidden');
+            });
+
+             // Image Upload functionaliteit
+            const uploadInput = document.getElementById('upload-input');
+            const profileImage = document.getElementById('profile-image');
+            const uploadLabel = document.getElementById('upload-label');
+
+            const updateProfileImageUI = (imageData) => {
+                profileImage.src = imageData;
+                uploadLabel.style.display = 'none'; // Verberg de knop als er een afbeelding is
+            };
+
+            const savedImage = localStorage.getItem('klantfansProfileImage');
+            if (savedImage) {
+                updateProfileImageUI(savedImage);
+            }
+
+            uploadInput.addEventListener('change', (event) => {
+                const file = event.target.files[0];
+                if (file) {
+                    const reader = new FileReader();
+                    reader.onload = (e) => {
+                        const imageData = e.target.result;
+                        localStorage.setItem('klantfansProfileImage', imageData);
+                        updateProfileImageUI(imageData);
+                    };
+                    reader.readAsDataURL(file);
+                }
+            });
+
+
+            // Form validatie helpers
+            const validateField = (fieldId, errorId) => {
+                const field = document.getElementById(fieldId);
+                const error = document.getElementById(errorId);
+                const value = field.value.trim();
+                
+                if (!value) {
+                    field.classList.add('input-error');
+                    error.classList.add('show');
+                    return false;
+                } else {
+                    field.classList.remove('input-error');
+                    error.classList.remove('show');
+                    return true;
+                }
+            };
+
+            // Real-time validatie bij input
+            ['user-name', 'company-name', 'industry', 'challenge'].forEach(fieldId => {
+                const field = document.getElementById(fieldId);
+                const errorId = `${fieldId}-error`;
+                
+                field.addEventListener('blur', () => validateField(fieldId, errorId));
+                field.addEventListener('input', () => {
+                    if (field.classList.contains('input-error')) {
+                        validateField(fieldId, errorId);
+                    }
+                });
+            });
+
+            // Gemini API functionaliteit (Scan) - Nu via backend
+            const analyzeBtn = document.getElementById('analyze-btn');
+            if (analyzeBtn) {
+                 const resultContainer = document.getElementById('gemini-result-container');
+                 const loadingSpinner = document.getElementById('gemini-loading');
+                 const outputDiv = document.getElementById('gemini-output');
+                 const errorDiv = document.getElementById('gemini-error');
+                 const errorDetails = document.getElementById('error-details');
+                 const outputText = outputDiv.querySelector('p');
+                 const followUpDiv = document.getElementById('scan-follow-up');
+
+                 analyzeBtn.addEventListener('click', async () => {
+                     const userName = document.getElementById('user-name').value.trim();
+                     const companyName = document.getElementById('company-name').value.trim();
+                     const industry = document.getElementById('industry').value.trim();
+                     const companySize = document.getElementById('company-size').value;
+                     const challenge = document.getElementById('challenge').value.trim();
+
+                     // Valideer alle velden
+                     const isValid = [
+                         validateField('user-name', 'user-name-error'),
+                         validateField('company-name', 'company-name-error'),
+                         validateField('industry', 'industry-error'),
+                         validateField('challenge', 'challenge-error')
+                     ].every(v => v);
+
+                     if (!isValid) {
+                         // Scroll naar eerste error
+                         const firstError = document.querySelector('.input-error');
+                         if (firstError) {
+                             firstError.scrollIntoView({ behavior: 'smooth', block: 'center' });
+                             firstError.focus();
+                         }
+                         return;
+                     }
+
+                     resultContainer.style.display = 'block';
+                     loadingSpinner.style.display = 'flex';
+                     outputDiv.style.display = 'none';
+                     errorDiv.style.display = 'none';
+                     followUpDiv.style.display = 'none';
+
+                     analyzeBtn.disabled = true;
+                     analyzeBtn.textContent = 'Analyse wordt uitgevoerd...';
+
+                     // Probeer eerst de backend API, val terug op directe API als fallback
+                     const apiEndpoint = '/api/analyze'; // Vercel/Netlify endpoint
+                     
+                     try {
+                         const response = await fetch(apiEndpoint, {
+                             method: 'POST',
+                             headers: { 'Content-Type': 'application/json' },
+                             body: JSON.stringify({
+                                 userName,
+                                 companyName,
+                                 industry,
+                                 companySize,
+                                 challenge
+                             })
+                         });
+
+                         const result = await response.json();
+
+                         if (!response.ok) {
+                             throw new Error(result.message || 'API request failed');
+                         }
+
+                         if (result.success && result.analysis) {
+                             const analysisText = result.analysis;
+                             outputText.innerHTML = analysisText.replace(/\n/g, '<br>');
+                             outputDiv.style.display = 'block';
+                             followUpDiv.style.display = 'block';
+
+                             // WhatsApp link met context
+                             const whatsappBtn = document.getElementById('whatsapp-follow-up');
+                             const baseWhatsAppUrl = "https://wa.me/31623885227";
+                             const introText = `Hallo Ronald, ik ben ${userName} van ${companyName} en heb zojuist de scan ingevuld. Hier is de input en het resultaat:`;
+                             const contextText = `\n\n*Input:*\n- Bedrijf: ${companyName}\n- Branche: ${industry}\n- Grootte: ${companySize} FTE`;
+                             const challengeText = `\n\n*Mijn Uitdaging:*\n${challenge}`;
+                             const analysisResultText = `\n\n*Eerste Analyse:*\n${analysisText}`;
+                             const outroText = "\n\nLaten we de strategiesessie inplannen.";
+
+                             const fullText = encodeURIComponent(introText + contextText + challengeText + analysisResultText + outroText);
+                             whatsappBtn.href = `${baseWhatsAppUrl}?text=${fullText}`;
+                         } else {
+                             throw new Error('Geen geldige analyse ontvangen.');
+                         }
+                     } catch (error) {
+                         console.error("Fout bij het aanroepen van de API:", error);
+                         errorDiv.style.display = 'block';
+                         errorDetails.innerHTML = `<strong>Fout:</strong> ${error.message}<br><small>Als dit probleem blijft bestaan, neem dan contact op via <a href="mailto:ronald@klantfans.nl" class="underline">ronald@klantfans.nl</a></small>`;
+                     } finally {
+                         loadingSpinner.style.display = 'none';
+                         analyzeBtn.disabled = false;
+                         analyzeBtn.textContent = 'Analyseer mijn Groeipotentieel';
+                     }
+                 });
+             }
+        });
+    </script>
+</body>
+</html>
