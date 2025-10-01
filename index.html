@@ -119,6 +119,7 @@
             z-index: 999;
             transition: all 0.3s ease;
             cursor: pointer;
+            opacity: 1;
         }
         #whatsapp-float:hover {
             transform: scale(1.1);
@@ -127,6 +128,10 @@
         #whatsapp-float svg {
             width: 32px;
             height: 32px;
+        }
+        #whatsapp-float.hidden-temp {
+            opacity: 0;
+            pointer-events: none;
         }
         @media (max-width: 768px) {
             #whatsapp-float {
@@ -684,13 +689,24 @@ Laatst bijgewerkt: Oktober 2025`;
                              throw new Error(result.message || 'API request failed');
                          }
 
-                         if (result.success && result.analysis) {
-                             const analysisText = result.analysis;
-                             outputText.innerHTML = analysisText.replace(/\n/g, '<br>');
-                             outputDiv.style.display = 'block';
-                             followUpDiv.style.display = 'block';
+                        if (result.success && result.analysis) {
+                            const analysisText = result.analysis;
+                            outputText.innerHTML = analysisText.replace(/\n/g, '<br>');
+                            outputDiv.style.display = 'block';
+                            followUpDiv.style.display = 'block';
 
-                             // WhatsApp link met context
+                            // Verberg floating WhatsApp button wanneer analyse-resultaat verschijnt
+                            const floatingWhatsApp = document.getElementById('whatsapp-float');
+                            if (floatingWhatsApp) {
+                                floatingWhatsApp.classList.add('hidden-temp');
+                            }
+
+                            // Scroll naar resultaten
+                            setTimeout(() => {
+                                followUpDiv.scrollIntoView({ behavior: 'smooth', block: 'center' });
+                            }, 300);
+
+                            // WhatsApp link met context
                              const whatsappBtn = document.getElementById('whatsapp-follow-up');
                              const baseWhatsAppUrl = "https://wa.me/31623885227";
                              const introText = `Hallo Ronald, ik ben ${userName} van ${companyName} en heb zojuist de scan ingevuld. Hier is de input en het resultaat:`;
