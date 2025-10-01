@@ -311,9 +311,7 @@
         <div class="container mx-auto px-6">
             <div class="max-w-3xl mx-auto text-center">
                 <h2 class="text-3xl md:text-4xl font-bold text-navy mb-4">Turnaround Potentieel Scan</h2>
-                <p class="text-xl text-navy font-semibold mb-4">Ontdek in 5 minuten of uw commercie motor of rem is</p>
-                <p class="text-lg text-gray-700 mb-2 max-w-2xl mx-auto">U krijgt direct een analyse van uw <strong>grootste commerciële lekken én kansen</strong>.</p>
-                <p class="text-base text-gray-600 mb-8">Dit is geen quiz – u ontvangt een professioneel mini-rapport van ons expert strategiepanel.</p>
+                <p class="text-xl text-navy font-semibold mb-8">Ontdek in 5 minuten of uw commercie motor of rem is</p>
 
                 <div class="bg-white p-8 rounded-lg border shadow-lg text-left">
                     <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-4">
@@ -704,24 +702,30 @@ Laatst bijgewerkt: Oktober 2025`;
                      // Probeer eerst de backend API, val terug op directe API als fallback
                      const apiEndpoint = '/api/analyze'; // Vercel/Netlify endpoint
                      
-                     try {
-                         const response = await fetch(apiEndpoint, {
-                             method: 'POST',
-                             headers: { 'Content-Type': 'application/json' },
-                             body: JSON.stringify({
-                                 userName,
-                                 companyName,
-                                 industry,
-                                 companySize,
-                                 challenge
-                             })
-                         });
+                    try {
+                        const response = await fetch(apiEndpoint, {
+                            method: 'POST',
+                            headers: { 'Content-Type': 'application/json' },
+                            body: JSON.stringify({
+                                userName,
+                                companyName,
+                                industry,
+                                companySize,
+                                challenge
+                            })
+                        });
 
-                         const result = await response.json();
+                        // Check of de response JSON is
+                        const contentType = response.headers.get('content-type');
+                        if (!contentType || !contentType.includes('application/json')) {
+                            throw new Error('Server gaf een ongeldige response. Probeer het later opnieuw.');
+                        }
 
-                         if (!response.ok) {
-                             throw new Error(result.message || 'API request failed');
-                         }
+                        const result = await response.json();
+
+                        if (!response.ok) {
+                            throw new Error(result.message || 'Kon analyse niet uitvoeren. Probeer het later opnieuw.');
+                        }
 
                         if (result.success && result.analysis) {
                             const analysisText = result.analysis;
