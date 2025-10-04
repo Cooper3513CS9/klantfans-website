@@ -33,7 +33,6 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@700&display=swap" rel="stylesheet">
     <style>
         body {
             font-family: 'Inter', sans-serif;
@@ -56,6 +55,47 @@
             transform: scale(1.1);
             opacity: 1;
         }
+        /* Button System */
+        .btn {
+            transition: all 0.3s ease;
+            font-weight: 700;
+            border-radius: 9999px;
+            display: inline-block;
+            text-align: center;
+            cursor: pointer;
+            border: 2px solid transparent;
+        }
+        .btn-primary {
+            background-color: #dd6b20;
+            color: white;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+        .btn-primary:hover {
+            background-color: #c05621;
+            transform: translateY(-2px);
+            box-shadow: 0 7px 14px rgba(0,0,0,0.15);
+        }
+        .btn-secondary {
+            background-color: #1a2a4c;
+            color: white;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+        .btn-secondary:hover {
+            background-color: #0f1a2e;
+            transform: translateY(-2px);
+            box-shadow: 0 7px 14px rgba(0,0,0,0.15);
+        }
+        .btn-outline {
+            background-color: transparent;
+            color: #1a2a4c;
+            border: 2px solid #1a2a4c;
+        }
+        .btn-outline:hover {
+            background-color: #1a2a4c;
+            color: white;
+            transform: translateY(-2px);
+        }
+        /* Legacy support */
         .cta-button {
             transition: all 0.3s ease;
             box-shadow: 0 4px 6px rgba(0,0,0,0.1);
@@ -149,6 +189,71 @@
         .pulse-animation {
             animation: pulse 2s infinite;
         }
+        /* Mobile Menu Animation */
+        #menu-btn .menu-icon {
+            transition: all 0.3s ease;
+        }
+        #menu-btn.active .menu-line:nth-child(1) {
+            transform: rotate(45deg) translate(6px, 6px);
+        }
+        #menu-btn.active .menu-line:nth-child(2) {
+            opacity: 0;
+        }
+        #menu-btn.active .menu-line:nth-child(3) {
+            transform: rotate(-45deg) translate(6px, -6px);
+        }
+        /* Scroll Animations */
+        .fade-in {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+        }
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        .slide-in-left {
+            opacity: 0;
+            transform: translateX(-50px);
+            transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+        }
+        .slide-in-left.visible {
+            opacity: 1;
+            transform: translateX(0);
+        }
+        .slide-in-right {
+            opacity: 0;
+            transform: translateX(50px);
+            transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+        }
+        .slide-in-right.visible {
+            opacity: 1;
+            transform: translateX(0);
+        }
+        /* Micro-interactions */
+        .nav-link {
+            position: relative;
+        }
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: -4px;
+            left: 50%;
+            background-color: #dd6b20;
+            transition: all 0.3s ease;
+            transform: translateX(-50%);
+        }
+        .nav-link:hover::after {
+            width: 100%;
+        }
+        /* Input focus states */
+        input:focus, textarea:focus, select:focus {
+            border-color: #dd6b20 !important;
+            ring-color: #dd6b20 !important;
+            box-shadow: 0 0 0 3px rgba(221, 107, 32, 0.1) !important;
+        }
     </style>
 </head>
 <body class="bg-white text-gray-800">
@@ -158,15 +263,17 @@
         <nav class="container mx-auto px-6 py-4 flex justify-between items-center">
             <a href="#home" class="text-2xl font-extrabold text-navy">Klant<span class="accent-orange">Fans</span></a>
             <div class="hidden md:flex items-center space-x-8">
-                <a href="#probleem" class="text-gray-600 hover:text-navy font-medium transition duration-300">Uw Probleem</a>
-                <a href="#scan" class="text-gray-600 hover:text-navy font-medium transition duration-300">Analyse</a>
-                <a href="#oplossing" class="text-gray-600 hover:text-navy font-medium transition duration-300">De Oplossing</a>
-                <a href="#cases" class="text-gray-600 hover:text-navy font-medium transition duration-300">Het Bewijs</a>
-                <a href="#scan" class="bg-accent-orange text-white font-bold py-2 px-5 rounded-full hover-bg-accent-orange-dark cta-button">Start de Turnaround</a>
+                <a href="#probleem" class="nav-link text-gray-600 hover:text-navy font-medium transition duration-300">Uw Probleem</a>
+                <a href="#scan" class="nav-link text-gray-600 hover:text-navy font-medium transition duration-300">Analyse</a>
+                <a href="#oplossing" class="nav-link text-gray-600 hover:text-navy font-medium transition duration-300">De Oplossing</a>
+                <a href="#cases" class="nav-link text-gray-600 hover:text-navy font-medium transition duration-300">Het Bewijs</a>
+                <a href="#scan" class="btn btn-primary py-2 px-6">Start de Turnaround</a>
             </div>
             <div class="md:hidden">
-                <button id="menu-btn" class="text-navy focus:outline-none">
-                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path></svg>
+                <button id="menu-btn" class="text-navy focus:outline-none w-8 h-8 flex flex-col justify-center items-center">
+                    <span class="menu-line block w-6 h-0.5 bg-navy mb-1.5 transition-all duration-300"></span>
+                    <span class="menu-line block w-6 h-0.5 bg-navy mb-1.5 transition-all duration-300"></span>
+                    <span class="menu-line block w-6 h-0.5 bg-navy transition-all duration-300"></span>
                 </button>
             </div>
         </nav>
@@ -176,7 +283,7 @@
             <a href="#scan" class="block py-3 px-6 text-sm text-gray-700 hover:bg-gray-50 border-b mobile-menu-link">Analyse</a>
             <a href="#oplossing" class="block py-3 px-6 text-sm text-gray-700 hover:bg-gray-50 border-b mobile-menu-link">De Oplossing</a>
             <a href="#cases" class="block py-3 px-6 text-sm text-gray-700 hover:bg-gray-50 border-b mobile-menu-link">Het Bewijs</a>
-            <a href="#scan" class="block py-3 px-6 text-center bg-accent-orange text-white font-bold hover-bg-accent-orange-dark mobile-menu-link">Start de Turnaround</a>
+            <a href="#scan" class="block py-3 px-6 text-center btn btn-primary mobile-menu-link">Start de Turnaround</a>
         </div>
     </header>
 
@@ -184,22 +291,25 @@
     <div id="scroll-progress" class="fixed top-0 left-0 h-1 bg-accent-orange z-50 transition-all duration-300" style="width: 0%"></div>
 
     <!-- Hero Sectie -->
-    <section id="home" class="hero-bg pt-20 pb-24">
+    <section id="home" class="hero-bg py-24">
         <div class="container mx-auto px-6">
             <div class="max-w-5xl mx-auto grid md:grid-cols-2 gap-12 items-center">
-                <div class="text-center md:text-left">
+                <div class="text-center md:text-left slide-in-left">
                     <h1 class="text-4xl md:text-5xl font-extrabold text-navy mb-4 leading-tight">Is uw commercie de motor of de rem op uw groei?</h1>
-                    <p class="text-lg md:text-xl text-gray-700 mb-8">Als het antwoord niet direct 'motor' is, heeft u een probleem. Ik werk als <strong>zelfstandige turnaround specialist</strong> met uw team om de operatie te herbouwen tot een voorspelbare groeimotor. Geen rapport, maar meetbare resultaten.</p>
-                    <a href="#oplossing" class="bg-accent-orange text-white font-bold py-3 px-8 rounded-full hover-bg-accent-orange-dark cta-button text-base inline-block">Hoe Werkt Het?</a>
+                    <p class="text-lg md:text-xl text-gray-700 mb-8">In 8 weken van stagnerende sales naar voorspelbare groei. Zonder McKinsey-rapport, met meetbaar resultaat. Ik werk als <strong>interim Commercial Director</strong> met uw team.</p>
+                    <a href="#oplossing" class="btn btn-primary py-3 px-8 text-base">Hoe Werkt Het?</a>
                 </div>
-                <div class="flex justify-center flex-col items-center">
+                <div class="flex justify-center flex-col items-center slide-in-right">
                     <div class="relative w-52 h-52 md:w-64 md:h-64 rounded-full border-4 border-accent-orange shadow-2xl overflow-hidden bg-gray-100">
                         <img id="profile-image" src="images/ronald-beute.jpg" alt="Ronald Beute - Commercieel Strateeg & Turnaround Specialist" class="w-full h-full object-cover" style="object-position: center 20%;" loading="eager">
                     </div>
                     <div class="text-center mt-6">
                         <h2 class="text-2xl font-bold text-navy">Ronald Beute</h2>
                         <p class="text-base text-gray-600 mt-1">Turnaround Commercial Lead | Zelfstandig Opdrachtnemer</p>
-                        <p class="text-sm text-gray-500 mt-2">25+ jaar ervaring | A-merken & Scale-ups</p>
+                        <div class="mt-3 bg-accent-orange bg-opacity-10 border-2 border-accent-orange rounded-lg px-4 py-3">
+                            <p class="text-lg font-bold text-navy">Van 6,9 naar 9,7 klantscore</p>
+                            <p class="text-sm text-gray-600">Bewezen bij RegioBank. Nu voor jouw scale-up.</p>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -207,7 +317,7 @@
     </section>
 
     <!-- Klantenbalk -->
-    <section id="klanten" class="py-16 bg-gray-50">
+    <section id="klanten" class="py-20 bg-gray-50">
         <div class="container mx-auto px-6">
             <div class="text-center mb-12">
                 <h3 class="text-sm font-bold uppercase text-gray-500 tracking-wider mb-3">Vertrouwd door</h3>
@@ -235,24 +345,170 @@
         </div>
     </section>
 
+    <!-- Herken je dit? Sectie - Category Entry Points -->
+    <section id="herken-je-dit" class="py-20 bg-gray-50">
+        <div class="container mx-auto px-6">
+            <div class="max-w-4xl mx-auto">
+                <h2 class="text-3xl md:text-4xl font-bold text-navy mb-4 text-center">Herken je dit?</h2>
+                <p class="text-lg text-gray-600 mb-10 text-center">Dit zijn de signalen dat uw commercie een turnaround nodig heeft:</p>
+                
+                <div class="grid md:grid-cols-2 gap-6">
+                    <div class="bg-white p-6 rounded-lg border-l-4 border-accent-orange shadow-sm hover:shadow-md transition-all duration-300">
+                        <div class="flex items-start">
+                            <span class="text-2xl mr-3 mt-1">⚠️</span>
+                            <div>
+                                <p class="text-gray-800 font-medium">Je investeert €50k+ in marketing maar de pipeline is een black box</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="bg-white p-6 rounded-lg border-l-4 border-accent-orange shadow-sm hover:shadow-md transition-all duration-300">
+                        <div class="flex items-start">
+                            <span class="text-2xl mr-3 mt-1">⚠️</span>
+                            <div>
+                                <p class="text-gray-800 font-medium">Sales en marketing geven elkaar de schuld voor gemiste targets</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="bg-white p-6 rounded-lg border-l-4 border-accent-orange shadow-sm hover:shadow-md transition-all duration-300">
+                        <div class="flex items-start">
+                            <span class="text-2xl mr-3 mt-1">⚠️</span>
+                            <div>
+                                <p class="text-gray-800 font-medium">Je hebt 3 tools (CRM, automation, analytics) maar geen enkel dashboard</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="bg-white p-6 rounded-lg border-l-4 border-accent-orange shadow-sm hover:shadow-md transition-all duration-300">
+                        <div class="flex items-start">
+                            <span class="text-2xl mr-3 mt-1">⚠️</span>
+                            <div>
+                                <p class="text-gray-800 font-medium">Leads komen binnen maar 70% wordt nooit opgevolgd</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="bg-white p-6 rounded-lg border-l-4 border-accent-orange shadow-sm hover:shadow-md transition-all duration-300">
+                        <div class="flex items-start">
+                            <span class="text-2xl mr-3 mt-1">⚠️</span>
+                            <div>
+                                <p class="text-gray-800 font-medium">Je weet niet welke marketingkanalen daadwerkelijk omzet genereren</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="bg-white p-6 rounded-lg border-l-4 border-accent-orange shadow-sm hover:shadow-md transition-all duration-300">
+                        <div class="flex items-start">
+                            <span class="text-2xl mr-3 mt-1">⚠️</span>
+                            <div>
+                                <p class="text-gray-800 font-medium">Salesgesprekken lopen, maar niemand kan de deal size voorspellen</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="bg-gradient-to-br from-orange-50 to-yellow-50 p-6 rounded-lg border-l-4 border-yellow-500 md:col-span-2">
+                        <div class="flex items-start">
+                            <span class="text-3xl mr-3 mt-1">🤖</span>
+                            <div>
+                                <p class="text-gray-800 font-bold text-lg mb-2">Uw concurrent claimt AI te gebruiken. Wat mist u?</p>
+                                <p class="text-gray-700 text-sm">Iedereen heeft het over AI voor sales en marketing. Maar hoe vertaal je die hype naar meetbare euro's op de P&L? Lead scoring die werkt? Content die converteert? Pipeline forecasting die klopt?</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="mt-10 text-center bg-navy text-white p-6 rounded-xl">
+                    <p class="text-xl font-bold mb-2">Als je 2 of meer herkent, ben je niet alleen.</p>
+                    <p class="text-gray-300">En je hoeft dit niet zelf op te lossen. Dat is waar ik voor besta.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Waarom Niet Een AI Consultant of CMO? -->
+    <section class="py-20 bg-white">
+        <div class="container mx-auto px-6">
+            <div class="max-w-5xl mx-auto">
+                <h2 class="text-3xl md:text-4xl font-bold text-navy mb-8 text-center">Waarom Niet Gewoon Een CMO Inhuren? Of Een AI Consultant?</h2>
+                
+                <div class="grid md:grid-cols-3 gap-6">
+                    <!-- AI Consultant -->
+                    <div class="bg-gray-50 p-6 rounded-xl border-2 border-gray-200">
+                        <div class="text-4xl mb-4 text-center">🤖</div>
+                        <h3 class="font-bold text-navy text-lg mb-3 text-center">AI Consultant</h3>
+                        <div class="space-y-2 text-sm">
+                            <p class="text-gray-600">✓ Weet alles van ChatGPT en modellen</p>
+                            <p class="text-red-600">✗ Geen ervaring met P&L verantwoordelijkheid</p>
+                            <p class="text-red-600">✗ Bouwt tools, geen strategie</p>
+                            <p class="text-red-600">✗ Kan geen commercial team aansturen</p>
+                        </div>
+                    </div>
+                    
+                    <!-- Marketing Consultant -->
+                    <div class="bg-gray-50 p-6 rounded-xl border-2 border-gray-200">
+                        <div class="text-4xl mb-4 text-center">📊</div>
+                        <h3 class="font-bold text-navy text-lg mb-3 text-center">Marketing Consultant</h3>
+                        <div class="space-y-2 text-sm">
+                            <p class="text-gray-600">✓ Weet hoe campagnes werken</p>
+                            <p class="text-red-600">✗ Bang voor technologie en data</p>
+                            <p class="text-red-600">✗ Geen hands-on implementatie</p>
+                            <p class="text-red-600">✗ Levert PowerPoints, geen resultaat</p>
+                        </div>
+                    </div>
+                    
+                    <!-- KlantFans -->
+                    <div class="bg-white p-6 rounded-xl border-4 border-accent-orange shadow-xl transform scale-105 relative overflow-hidden">
+                        <div class="absolute top-0 right-0 bg-accent-orange text-white text-xs font-bold px-3 py-1 rounded-bl-lg">BESTE KEUZE</div>
+                        <div class="text-4xl mb-4 text-center">🚀</div>
+                        <h3 class="font-bold text-navy text-lg mb-3 text-center">KlantFans</h3>
+                        <div class="space-y-3 text-sm">
+                            <div class="flex items-start">
+                                <span class="text-green-600 font-bold mr-2">✓</span>
+                                <p class="text-gray-800 font-medium">25+ jaar Commercial Director (RegioBank, Feyenoord)</p>
+                            </div>
+                            <div class="flex items-start">
+                                <span class="text-green-600 font-bold mr-2">✓</span>
+                                <p class="text-gray-800 font-medium">Gebruikt AI als middel, niet als doel</p>
+                            </div>
+                            <div class="flex items-start">
+                                <span class="text-green-600 font-bold mr-2">✓</span>
+                                <p class="text-gray-800 font-medium">Hands-on implementatie, geen PowerPoints</p>
+                            </div>
+                            <div class="flex items-start">
+                                <span class="text-green-600 font-bold mr-2">✓</span>
+                                <p class="text-gray-800 font-medium">Meetbare resultaten op de P&L</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="mt-8 bg-navy text-white p-6 rounded-xl text-center">
+                    <p class="text-xl font-bold mb-2">U heeft geen AI-project nodig. U heeft een commercial turnaround nodig.</p>
+                    <p class="text-gray-300">AI is een middel. Groei is het doel. Ik combineer beide.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
      <!-- Probleem Sectie -->
-    <section id="probleem" class="py-20">
+    <section id="probleem" class="py-20 bg-gray-50">
         <div class="container mx-auto px-6">
             <div class="max-w-5xl mx-auto text-center">
-                <h2 class="text-3xl font-bold text-navy mb-6">Veel Beweging, Weinig Groei: De Pijn van een Stagnerende Operatie</h2>
-                <p class="text-lg text-gray-700 leading-relaxed mb-12 max-w-3xl mx-auto">U investeert in mensen, middelen en marketing, maar de P&L reflecteert de inspanning niet. Het team is druk, de ROI onzichtbaar en u mist de commerciële grip. Dit is geen afdelingsprobleem; het is een rem op uw totale bedrijfsgroei.</p>
+                <h2 class="text-3xl md:text-4xl font-bold text-navy mb-6">Veel Beweging, Weinig Groei</h2>
+                <p class="text-lg text-gray-700 leading-relaxed mb-12 max-w-3xl mx-auto">U investeert in mensen, middelen en marketing, maar de P&L reflecteert de inspanning niet. Het team is druk, de ROI onzichtbaar en u mist de commerciële grip.</p>
                  <div class="grid grid-cols-1 md:grid-cols-3 gap-8 text-left">
-                    <div class="bg-white p-8 rounded-xl shadow-lg hover:shadow-2xl transition-all duration-300 border-t-4 border-accent-orange transform hover:-translate-y-1">
+                    <div class="bg-white p-8 rounded-xl shadow-lg hover:shadow-2xl transition-all duration-300 border-t-4 border-accent-orange transform hover:-translate-y-1 fade-in">
                         <div class="text-4xl mb-4">👔</div>
                         <h3 class="font-bold text-navy text-xl mb-3">Als CEO/DGA</h3>
                         <p class="text-gray-600 leading-relaxed">Investeert u fors in een commerciële 'black box' en mist u de harde cijfers die de bijdrage aan de P&L bewijzen.</p>
                     </div>
-                     <div class="bg-white p-8 rounded-xl shadow-lg hover:shadow-2xl transition-all duration-300 border-t-4 border-accent-orange transform hover:-translate-y-1">
+                     <div class="bg-white p-8 rounded-xl shadow-lg hover:shadow-2xl transition-all duration-300 border-t-4 border-accent-orange transform hover:-translate-y-1 fade-in">
                         <div class="text-4xl mb-4">🚀</div>
                         <h3 class="font-bold text-navy text-xl mb-3">Als Oprichter</h3>
-                        <p class="text-gray-600 leading-relaxed">Heeft u senior denkkracht nodig om op te schalen, maar niet de lasten van een fulltime CMO van €150k+.</p>
+                        <p class="text-gray-600 leading-relaxed">Heeft u senior denkkracht nodig om op te schalen, maar niet de lasten van een fulltime CMO.</p>
                     </div>
-                     <div class="bg-white p-8 rounded-xl shadow-lg hover:shadow-2xl transition-all duration-300 border-t-4 border-accent-orange transform hover:-translate-y-1">
+                     <div class="bg-white p-8 rounded-xl shadow-lg hover:shadow-2xl transition-all duration-300 border-t-4 border-accent-orange transform hover:-translate-y-1 fade-in">
                         <div class="text-4xl mb-4">📈</div>
                         <h3 class="font-bold text-navy text-xl mb-3">Als Investeerder</h3>
                         <p class="text-gray-600 leading-relaxed">Moet een portfoliobedrijf snel professionaliseren om de groeidoelen en de exit-waarde te maximaliseren.</p>
@@ -263,94 +519,78 @@
     </section>
 
     <!-- Oplossing Sectie -->
-    <section id="oplossing" class="py-20 bg-gray-50">
+    <section id="oplossing" class="py-20 bg-white">
         <div class="container mx-auto px-6">
             <div class="text-center max-w-4xl mx-auto">
-                <h2 class="text-3xl font-bold text-navy mb-4">Hoe Werkt Het? De Turnaround Canvas Methodiek</h2>
-                 <p class="text-lg text-gray-700 mb-12">U heeft geen adviseur nodig die vertelt wat er moet. U heeft iemand nodig die <strong>verantwoordelijkheid neemt</strong> en het regelt. Dat doe ik - als externe turnaround lead, samen met uw team. Met het <strong>Turnaround Canvas</strong> als kompas.</p>
+                <h2 class="text-3xl md:text-4xl font-bold text-navy mb-6">Van Diagnose naar Groei in 3 Fases</h2>
+                 <p class="text-lg text-gray-700 mb-12">U heeft geen adviseur nodig die vertelt wat er moet. U heeft iemand nodig die <strong>verantwoordelijkheid neemt</strong> en het regelt. Dat doe ik - als interim Commercial Director, samen met uw team.</p>
             </div>
 
             <div class="grid md:grid-cols-3 gap-8 max-w-6xl mx-auto mb-12">
                 <!-- Fase 1 -->
-                <div class="bg-white p-8 rounded-xl shadow-lg border-t-4 border-accent-orange hover:shadow-2xl transition-all duration-300">
+                <div class="bg-white p-8 rounded-xl shadow-lg border-t-4 border-accent-orange hover:shadow-2xl transition-all duration-300 fade-in">
                     <div class="w-16 h-16 bg-accent-orange bg-opacity-10 rounded-full flex items-center justify-center mb-4">
                         <span class="text-3xl">🔍</span>
                     </div>
                     <div class="flex items-center mb-3">
                         <span class="text-accent-orange font-bold text-lg mr-2">FASE 1</span>
-                        <h3 class="text-2xl font-bold text-navy">Scan</h3>
+                        <h3 class="text-2xl font-bold text-navy">Diagnose</h3>
                     </div>
-                    <p class="text-gray-700 leading-relaxed mb-4 font-medium">AI-powered diagnose van uw commerciële uitdaging. Identificeert focus-problemen, branding gaps en sales inefficiënties.</p>
+                    <p class="text-gray-700 leading-relaxed mb-4 font-medium">Waar lekt uw commerciële machine? Gratis diagnose identificeert de grootste bottlenecks: focus-problemen, lekkende funnel, broken sales proces.</p>
                     <p class="text-sm text-gray-600 font-semibold"><strong>Duur:</strong> 5 minuten<br><strong>Kosten:</strong> Gratis</p>
                 </div>
 
                 <!-- Fase 2 -->
-                <div class="bg-white p-8 rounded-xl shadow-lg border-t-4 border-accent-orange hover:shadow-2xl transition-all duration-300 ring-2 ring-accent-orange">
+                <div class="bg-white p-8 rounded-xl shadow-lg border-t-4 border-accent-orange hover:shadow-2xl transition-all duration-300 fade-in">
                     <div class="w-16 h-16 bg-accent-orange bg-opacity-10 rounded-full flex items-center justify-center mb-4">
-                        <span class="text-3xl">🎨</span>
+                        <span class="text-3xl">🎯</span>
                     </div>
                     <div class="flex items-center mb-3">
                         <span class="font-bold text-lg mr-2 text-accent-orange">FASE 2</span>
-                        <h3 class="text-2xl font-bold text-navy">Turnaround Canvas Traject</h3>
+                        <h3 class="text-2xl font-bold text-navy">Strategie & Quick Wins</h3>
                     </div>
-                    <p class="leading-relaxed mb-4 text-gray-700 font-medium">We vullen samen het <strong>Turnaround Canvas</strong> in met uw team: WHO (doelgroep), WHAT (propositie), HOW (kanalen), MONEY (verdienmodel). Tijdens het invullen ontdekken we de échte problemen: website outdated, funnel lekkend, pricing onduidelijk, lead-opvolging broken.</p>
+                    <p class="leading-relaxed mb-4 text-gray-700 font-medium">We bouwen de strategie en fixen meteen wat kan. Geen rapport, maar direct actie.</p>
 
                     <div class="bg-gray-50 p-6 rounded-lg mt-4 border-l-4 border-accent-orange">
-                        <p class="font-bold text-navy mb-3">Wat u krijgt:</p>
+                        <p class="font-bold text-navy mb-3">Wat verandert er:</p>
                         <ul class="space-y-2 text-gray-700 text-sm">
-                            <li>✓ Complete Turnaround Canvas analyse (WHO/WHAT/HOW/MONEY)</li>
-                            <li>✓ OGSM jaarplan (strategie → executie)</li>
-                            <li>✓ Actieplan met quick wins + grote projecten</li>
-                            <li>✓ Quick wins fixen we ter plekke (kleine optimalisaties)</li>
-                            <li>✓ Grote projecten (website rebuild, CRM, etc.) quoteren we separaat (Fase 3)</li>
+                            <li>✓ Duidelijke focus: max 3 marktkansen (niet 15)</li>
+                            <li>✓ Scherpe propositie die verkoopt</li>
+                            <li>✓ Jaarplan met meetbare doelen</li>
+                            <li>✓ Quick fixes direct geïmplementeerd</li>
+                            <li>✓ Grote projecten (CRM, website) gekwoteerd voor fase 3</li>
                         </ul>
                     </div>
 
-                    <p class="text-sm font-semibold text-gray-600 mt-4"><strong>Duur:</strong> 4-8 weken (afhankelijk van complexiteit)<br><strong>Investering:</strong> Op maat. Indicatie: €15.000 - €35.000</p>
+                    <p class="text-sm font-semibold text-gray-600 mt-4"><strong>Duur:</strong> 4-8 weken<br><strong>Investering:</strong> Op maat</p>
                 </div>
 
                 <!-- Fase 3 -->
-                <div class="bg-white p-8 rounded-xl shadow-lg border-t-4 border-navy hover:shadow-2xl transition-all duration-300">
-                    <div class="w-16 h-16 bg-navy bg-opacity-10 rounded-full flex items-center justify-center mb-4">
+                <div class="bg-white p-8 rounded-xl shadow-lg border-t-4 border-accent-orange hover:shadow-2xl transition-all duration-300 fade-in">
+                    <div class="w-16 h-16 bg-accent-orange bg-opacity-10 rounded-full flex items-center justify-center mb-4">
                         <span class="text-3xl">⚡</span>
                     </div>
                     <div class="flex items-center mb-3">
-                        <span class="text-navy font-bold text-lg mr-2">FASE 3</span>
-                        <h3 class="text-2xl font-bold text-navy">Executie</h3>
+                        <span class="text-accent-orange font-bold text-lg mr-2">FASE 3</span>
+                        <h3 class="text-2xl font-bold text-navy">Executie & Groei</h3>
                     </div>
-                    <p class="text-gray-600 leading-relaxed mb-4">Ik coach uw team bij implementatie. Quarterly reviews, health score tracking, bijsturen waar nodig. Totdat groei voorspelbaar is.</p>
+                    <p class="text-gray-600 leading-relaxed mb-4">De grote projecten implementeren. Team coachen. Bijsturen waar nodig. Totdat groei voorspelbaar is en uw team het zelf runt.</p>
                     <p class="text-sm text-gray-500"><strong>Duur:</strong> 3-12 maanden<br><strong>Format:</strong> Retainer of project-based</p>
                 </div>
             </div>
 
-            <!-- Canvas Tool Highlight -->
-            <div class="max-w-4xl mx-auto bg-navy text-white p-8 rounded-xl">
-                <div class="flex items-start">
-                    <div class="text-4xl mr-6">🧰</div>
-                    <div>
-                        <h4 class="text-2xl font-bold mb-3">Wat Maakt het Turnaround Canvas Anders?</h4>
-                        <ul class="space-y-2 text-gray-200">
-                            <li>✓ <strong>Focus discipline:</strong> Max 3 marktkansen tegelijk (Rule of 3)</li>
-                            <li>✓ <strong>4-vraag strategie:</strong> WHO/WHAT/HOW/MONEY dwingt helderheid</li>
-                            <li>✓ <strong>AI-assisted content:</strong> 1e concepten voor LinkedIn, emails, website teksten</li>
-                            <li>✓ <strong>OGSM tracking:</strong> Objectives → Goals → Strategies → Measures met quarterly reviews</li>
-                        </ul>
-                        <p class="mt-4 text-sm text-gray-300">Het Canvas is geen template. Het is een <strong>denk-systeem</strong> dat chaos omvormt tot een executeerbaar plan.</p>
-                    </div>
-                </div>
-            </div>
         </div>
     </section>
 
     <!-- Gemini API Sectie: Turnaround Scan -->
-    <section id="scan" class="py-20 bg-gradient-to-b from-white to-gray-50">
+    <section id="scan" class="py-20 bg-gray-50">
         <div class="container mx-auto px-6">
             <div class="max-w-3xl mx-auto text-center">
                 <h2 class="text-3xl md:text-4xl font-bold text-navy mb-4">Turnaround Potentieel Scan</h2>
                 <p class="text-xl text-navy font-semibold mb-8">Ontdek in 5 minuten of uw commercie motor of rem is</p>
 
-                <div class="bg-white p-8 rounded-lg border shadow-lg text-left">
-                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-4">
+                <div class="bg-white p-6 md:p-8 rounded-lg border shadow-lg text-left">
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-6 mb-6">
                         <div>
                             <label for="user-name" class="block text-sm font-medium text-gray-700">Uw Naam <span class="text-red-500">*</span></label>
                             <input type="text" id="user-name" class="mt-1 block w-full px-3 py-2 bg-white border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-accent-orange focus:border-accent-orange" placeholder="B.v. Alex de Groot" required aria-required="true">
@@ -378,14 +618,14 @@
                     </div>
                     <div class="mb-6">
                          <label for="challenge" class="block text-sm font-medium text-gray-700 mb-2">Uw #1 Commerciële Uitdaging <span class="text-red-500">*</span></label>
-                        <div class="text-sm text-gray-600 mb-3 p-4 bg-gray-50 rounded-md border-l-4 border-accent-orange">
+                        <div class="text-sm text-gray-600 mb-3 p-3 bg-gray-50 rounded-md border-l-4 border-accent-orange">
                             <p class="font-semibold text-navy mb-2">Voor de beste analyse:</p>
                             <p class="leading-relaxed">Beschrijf <strong>het probleem</strong>, de <strong>financiële impact</strong>, en wat u <strong>idealiter wilt bereiken</strong>. Hoe concreter, hoe scherper onze analyse.</p>
                         </div>
                         <textarea id="challenge" rows="6" class="mt-1 block w-full px-3 py-2 bg-white border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-accent-orange focus:border-accent-orange" placeholder="B.v. Onze sales pipeline is onvoorspelbaar, waardoor we 20% van ons omzetdoel missen en marketing en sales elkaar de schuld geven..." required aria-required="true"></textarea>
                         <p class="error-message" id="challenge-error">Dit veld is verplicht</p>
                     </div>
-                    <button id="analyze-btn" class="w-full bg-accent-orange text-white font-bold py-3 px-8 rounded-full hover-bg-accent-orange-dark cta-button text-lg flex items-center justify-center">
+                    <button id="analyze-btn" class="w-full btn btn-primary py-3 px-8 text-lg flex items-center justify-center">
                         Analyseer mijn Groeipotentieel
                     </button>
 
@@ -400,7 +640,7 @@
                         <div id="scan-follow-up" class="mt-6 text-center" style="display: none;">
                             <h3 class="text-xl font-bold text-navy">Deze analyse is de start. De echte turnaround begint met een plan.</h3>
                             <p class="text-gray-700 my-4">Deze AI-scan onthult de symptomen. In een 30-minuten strategiesessie leg ik de onderliggende ziekte bloot en schets ik de eerste stappen van een concreet turnaround plan.</p>
-                             <a id="whatsapp-follow-up" href="#" target="_blank" class="bg-navy text-white font-bold py-3 px-8 rounded-full hover:bg-gray-800 cta-button text-lg inline-block">Plan uw Gratis Turnaround Gesprek</a>
+                             <a id="whatsapp-follow-up" href="#" target="_blank" class="btn btn-secondary py-3 px-8 text-lg">Plan uw Gratis Turnaround Gesprek</a>
                         </div>
                          <div id="gemini-error" class="bg-red-100 p-4 rounded-md border-l-4 border-red-500 text-red-800" style="display: none;">
                             <strong>Er is iets misgegaan.</strong>
@@ -412,184 +652,22 @@
         </div>
     </section>
 
-    <!-- Investering & Werkwijze Sectie -->
-    <section id="investering" class="py-20 bg-white">
-        <div class="container mx-auto px-6">
-            <div class="max-w-5xl mx-auto">
-                <h2 class="text-3xl font-bold text-navy mb-12 text-center">Investering & Werkwijze</h2>
-
-                <div class="grid md:grid-cols-2 gap-8 mb-12">
-                    <!-- Voor Wie -->
-                    <div class="bg-gray-50 p-8 rounded-xl">
-                        <h3 class="text-2xl font-bold text-navy mb-6">Voor Wie is Dit?</h3>
-                        <div class="space-y-4">
-                            <div class="flex items-start">
-                                <span class="text-2xl mr-3">🚀</span>
-                                <div>
-                                    <h4 class="font-bold text-navy">Scale-Ups (€2-20M)</h4>
-                                    <p class="text-sm text-gray-600">Je hebt product-market fit, maar de commercie stottert</p>
-                                </div>
-                            </div>
-                            <div class="flex items-start">
-                                <span class="text-2xl mr-3">🏢</span>
-                                <div>
-                                    <h4 class="font-bold text-navy">Midsize B2B (€20-100M)</h4>
-                                    <p class="text-sm text-gray-600">Groei stagneert, ROI commercie onduidelijk</p>
-                                </div>
-                            </div>
-                            <div class="flex items-start">
-                                <span class="text-2xl mr-3">💼</span>
-                                <div>
-                                    <h4 class="font-bold text-navy">PE Portfolio</h4>
-                                    <p class="text-sm text-gray-600">Pre-exit professionalisering nodig</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Pricing -->
-                    <div class="bg-gradient-to-br from-navy to-gray-800 text-white p-8 rounded-xl">
-                        <h3 class="text-2xl font-bold mb-6">Investering</h3>
-                        <div class="space-y-6">
-                            <div>
-                                <div class="flex justify-between items-center mb-2">
-                                    <span class="font-semibold">Fase 1: Scan</span>
-                                    <span class="text-accent-orange font-bold">Gratis</span>
-                                </div>
-                                <p class="text-sm text-gray-300">AI-diagnose via website (5 min)</p>
-                            </div>
-                            <div class="border-t border-gray-600 pt-4">
-                                <div class="flex justify-between items-center mb-2">
-                                    <span class="font-semibold">Fase 2: Canvas Traject</span>
-                                    <span class="text-accent-orange font-bold">Op maat</span>
-                                </div>
-                                <p class="text-sm text-gray-300">4-8 weken. Indicatie: €15.000 - €35.000 (afhankelijk van scope)</p>
-                            </div>
-                            <div class="border-t border-gray-600 pt-4">
-                                <div class="flex justify-between items-center mb-2">
-                                    <span class="font-semibold">Fase 3: Executie Coaching</span>
-                                    <span class="text-accent-orange font-bold">€6.500 - €12.000/mnd</span>
-                                </div>
-                                <p class="text-sm text-gray-300">3-12 maanden retainer of project-based</p>
-                            </div>
-                        </div>
-                        <div class="mt-6 p-4 bg-white bg-opacity-10 rounded-lg">
-                            <p class="text-sm"><strong>ROI:</strong> Een €50k investering die €500k+ extra omzet genereert verdient zichzelf binnen 3-6 maanden terug.</p>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Availability -->
-                <div class="text-center bg-gray-100 p-6 rounded-lg">
-                    <p class="text-gray-700"><strong class="text-navy">Beschikbaarheid:</strong> Ik neem max 3 turnaround trajecten tegelijk aan. <span class="text-accent-orange font-semibold">Volgende intake: Q1 2026</span></p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Wat Ik Concreet Doe Sectie -->
-    <section class="py-20 bg-navy text-white">
-        <div class="container mx-auto px-6">
-            <div class="max-w-5xl mx-auto">
-                <h2 class="text-3xl font-bold mb-6 text-center">Wat Ik Concreet Doe (Van Diagnose tot Executie)</h2>
-                <p class="text-xl text-gray-300 mb-12 text-center">Ik ben geen PowerPoint-maker. Ik BEN tijdelijk uw Commercial Director. Wat ik doe hangt af van de fase:</p>
-
-                <div class="grid md:grid-cols-2 gap-8 mb-8">
-                    <!-- Fase 2: Canvas Traject -->
-                    <div class="bg-accent-orange bg-opacity-10 border-2 border-accent-orange p-8 rounded-xl">
-                        <div class="flex items-center mb-4">
-                            <span class="text-accent-orange font-bold text-lg mr-2">FASE 2</span>
-                            <h3 class="text-2xl font-bold">Canvas Traject</h3>
-                        </div>
-                        <p class="text-gray-300 text-sm mb-6">Strategie scherpen + quick wins fixen</p>
-
-                        <ul class="space-y-3 text-gray-200 text-sm">
-                            <li>✓ Canvas sessies faciliteren met uw team</li>
-                            <li>✓ Marktkansen prioriteren (max 3)</li>
-                            <li>✓ Pricing strategie valideren</li>
-                            <li>✓ Go-to-market roadmap ontwerpen</li>
-                            <li>✓ Sales pitches en LinkedIn content <strong>schrijven</strong></li>
-                            <li>✓ OGSM jaarplan bouwen</li>
-                            <li>✓ Quick wins direct fixen (kleine optimalisaties)</li>
-                        </ul>
-
-                        <p class="mt-4 text-xs text-gray-400">Grote projecten (CRM, website rebuild, etc.) quoteren we apart voor Fase 3.</p>
-                    </div>
-
-                    <!-- Fase 3: Executie -->
-                    <div class="bg-white bg-opacity-10 border-2 border-gray-500 p-8 rounded-xl">
-                        <div class="flex items-center mb-4">
-                            <span class="text-gray-400 font-bold text-lg mr-2">FASE 3</span>
-                            <h3 class="text-2xl font-bold">Executie Coaching</h3>
-                        </div>
-                        <p class="text-gray-300 text-sm mb-6">Grote projecten implementeren + team coachen</p>
-
-                        <ul class="space-y-3 text-gray-200 text-sm">
-                            <li>✓ CRM en marketing automation <strong>implementeren</strong></li>
-                            <li>✓ Dashboards voor commercial KPI's bouwen</li>
-                            <li>✓ Outbound campagnes opzetten en runnen</li>
-                            <li>✓ Landing pages optimaliseren/rebuilden</li>
-                            <li>✓ Lead scoring en pipeline management setup</li>
-                            <li>✓ Wekelijkse stand-ups faciliteren (geen lijnverantwoordelijkheid)</li>
-                            <li>✓ Team coachen op P&L-denken</li>
-                            <li>✓ Reportage naar board/investeerders</li>
-                        </ul>
-                    </div>
-                </div>
-
-                <div class="mt-12 text-center bg-accent-orange p-8 rounded-xl">
-                    <p class="text-2xl font-bold mb-4">Samengevat: Ik lever de resultaten van een Commercial Director, met de flexibiliteit van een externe specialist.</p>
-                    <p class="text-lg">Fulltime CMO: €150k + 6 maanden opwerktijd + vast contract<br><strong>Zelfstandig met mij: €75-100k + direct impact + geen vast contract</strong></p>
-                </div>
-            </div>
-        </div>
-    </section>
-
     <!-- Ervaring Sectie -->
-    <section id="ervaring" class="py-20 bg-gray-50">
+    <section id="ervaring" class="py-20 bg-white">
         <div class="container mx-auto px-6">
             <div class="max-w-4xl mx-auto text-center">
-                <h2 class="text-3xl font-bold text-navy mb-4">Gefundeerd in 25+ Jaar Commerciële Ervaring</h2>
-                <p class="text-lg text-gray-700">Mijn aanpak is gefundeerd in 25+ jaar commerciële ervaring, van A-merk directiekamers (RegioBank, ING, G4S) tot de frontlinie van tech startups. Als founder van ZenTrack, een SaaS-oplossing voor huisartspraktijken, heb ik zelf de commerciële uitdagingen van product-market fit, prijsstrategie en het bouwen van een schaalbare salesfunnel doorleefd. Deze unieke combinatie van corporate strategie en startup-executie pas ik vandaag de dag toe op A-merken en ambitieuze groeiers.</p>
-            </div>
-        </div>
-    </section>
-
-    <!-- Prijzen Sectie -->
-    <section id="prijzen" class="py-20">
-        <div class="container mx-auto px-6">
-            <div class="max-w-5xl mx-auto text-center">
-                <h2 class="text-3xl font-bold text-navy mb-12">Objectieve Erkenning & Prijzen</h2>
-                <div class="grid grid-cols-2 md:grid-cols-4 gap-8 items-center">
-                    <div class="text-center">
-                        <img src="images/logos/consumentenbond.png" alt="Consumentenbond - Beste Bank award" class="h-10 mx-auto mb-3" loading="lazy">
-                        <h4 class="font-bold text-navy">Beste Bank van NL</h4>
-                        <p class="text-gray-600 text-sm">(Cijfer 9,7)</p>
-                    </div>
-                     <div class="text-center">
-                        <img src="images/logos/kvb-nederland.png" alt="Klantvriendelijkste Bedrijf van Nederland award" class="h-12 mx-auto mb-3" loading="lazy">
-                        <h4 class="font-bold text-navy">Klantvriendelijkste Bank</h4>
-                         <p class="text-gray-600 text-sm">(Branchewinnaar)</p>
-                    </div>
-                     <div class="text-center">
-                         <img src="images/logos/website-van-het-jaar.png" alt="Website van het Jaar award" class="h-12 mx-auto mb-3" loading="lazy">
-                        <h4 class="font-bold text-navy">Website van het Jaar</h4>
-                         <p class="text-gray-600 text-sm">(Categorie Banken)</p>
-                    </div>
-                     <div class="text-center">
-                         <img src="images/logos/nima.png" alt="NIMA - Dutch Marketing Awards finalist" class="h-10 mx-auto mb-3" loading="lazy">
-                        <h4 class="font-bold text-navy">Finalist Nima Dutch Marketing Company of the year 2018</h4>
-                    </div>
-                </div>
+                <h2 class="text-3xl md:text-4xl font-bold text-navy mb-6">25+ Jaar Bewezen Resultaten</h2>
+                <p class="text-lg text-gray-700">Van A-merk directiekamers (RegioBank, ING, G4S) tot de frontlinie van tech startups. Als founder van ZenTrack heb ik zelf de commerciële uitdagingen van product-market fit, prijsstrategie en schaalbare salesfunnels doorleefd. Deze unieke combinatie van corporate strategie en startup-executie pas ik toe op ambitieuze groeiers die resultaat willen, geen rapporten.</p>
             </div>
         </div>
     </section>
 
     <!-- Cases Sectie -->
-    <section id="cases" class="py-20 bg-gray-50">
+    <section id="cases" class="py-20 bg-white">
         <div class="container mx-auto px-6">
             <div class="text-center max-w-4xl mx-auto">
-                <h2 class="text-3xl font-bold text-navy mb-4">Het Bewijs: Recente Turnarounds</h2>
+                <h2 class="text-3xl md:text-4xl font-bold text-navy mb-6">Het Bewijs</h2>
+                <p class="text-lg text-gray-600 mb-8">Geen theorie. Meetbare resultaten bij A-merken en scale-ups.</p>
             </div>
             <div class="grid md:grid-cols-2 gap-8 max-w-5xl mx-auto mt-12">
                 <div class="bg-white rounded-xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-300 border-l-4 border-blue-500 flex flex-col transform hover:-translate-y-1">
@@ -656,7 +734,7 @@
         <div class="container mx-auto px-6 text-center">
             <h2 class="text-3xl md:text-4xl font-bold text-white mb-6">Klaar om van uw commercie een groeimotor te maken?</h2>
             <p class="text-lg text-gray-300 mb-10 max-w-2xl mx-auto">De eerste stap is geen lang traject, maar een directe strategiesessie. Ik analyseer uw situatie en geef u direct een eerlijk oordeel over het turnaround-potentieel.</p>
-            <a href="#scan" class="bg-accent-orange text-white font-bold py-4 px-10 rounded-full hover-bg-accent-orange-dark cta-button text-xl inline-block">Start de Diagnose</a>
+            <a href="#scan" class="btn btn-primary py-4 px-10 text-xl">Start de Diagnose</a>
         </div>
     </section>
 
@@ -684,7 +762,7 @@
     </footer>
 
     <!-- Cookie Banner -->
-    <div id="cookie-banner" class="show">
+    <div id="cookie-banner">
         <div class="container mx-auto px-6 py-4 flex flex-col md:flex-row items-center justify-between text-white">
             <div class="mb-4 md:mb-0 md:mr-8">
                 <p class="text-sm">
@@ -693,7 +771,7 @@
                     <a href="#privacy" onclick="showPrivacyModal(); return false;" class="underline ml-1">Lees meer</a>
                 </p>
             </div>
-            <button id="accept-cookies" class="bg-accent-orange hover-bg-accent-orange-dark text-white font-bold py-2 px-6 rounded-full cta-button whitespace-nowrap">
+            <button id="accept-cookies" class="btn btn-primary py-2 px-6 whitespace-nowrap">
                 Begrepen
             </button>
         </div>
@@ -753,8 +831,8 @@ Laatst bijgewerkt: Oktober 2025`;
             const cookieBanner = document.getElementById('cookie-banner');
             const acceptCookiesBtn = document.getElementById('accept-cookies');
             
-            if (localStorage.getItem('klantfansCookiesAccepted') === 'true') {
-                cookieBanner.classList.remove('show');
+            if (localStorage.getItem('klantfansCookiesAccepted') !== 'true') {
+                cookieBanner.classList.add('show');
             }
             
             acceptCookiesBtn.addEventListener('click', function() {
@@ -778,12 +856,14 @@ Laatst bijgewerkt: Oktober 2025`;
             
             menuBtn.addEventListener('click', function() {
                 mobileMenu.classList.toggle('hidden');
+                menuBtn.classList.toggle('active');
             });
 
             // Sluit menu bij klikken op link
             mobileMenuLinks.forEach(link => {
                 link.addEventListener('click', function() {
                     mobileMenu.classList.add('hidden');
+                    menuBtn.classList.remove('active');
                 });
             });
 
@@ -792,7 +872,27 @@ Laatst bijgewerkt: Oktober 2025`;
                 const isClickInside = mobileMenu.contains(event.target) || menuBtn.contains(event.target);
                 if (!isClickInside && !mobileMenu.classList.contains('hidden')) {
                     mobileMenu.classList.add('hidden');
+                    menuBtn.classList.remove('active');
                 }
+            });
+
+            // Scroll Animations
+            const observerOptions = {
+                threshold: 0.1,
+                rootMargin: '0px 0px -50px 0px'
+            };
+
+            const observer = new IntersectionObserver(function(entries) {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('visible');
+                    }
+                });
+            }, observerOptions);
+
+            // Observeer alle elementen met animatie classes
+            document.querySelectorAll('.fade-in, .slide-in-left, .slide-in-right').forEach(el => {
+                observer.observe(el);
             });
 
             // Form validatie helpers
