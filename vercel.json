@@ -1,4 +1,5 @@
 {
+  "name": "klantfans",
   "functions": {
     "api/analyze.js": {
       "memory": 1024,

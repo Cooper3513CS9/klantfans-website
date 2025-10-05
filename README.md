@@ -27,6 +27,7 @@ Professionele landing page voor KlantFans - Commercieel Strateeg & Turnaround Sp
    - Importeer deze Git repository
    - Voeg environment variable toe:
      - `GEMINI_API_KEY` = je Gemini API key
+   - Website wordt live op: **klantfans.vercel.app**
 
 3. **Of deploy via CLI**:
    ```bash
@@ -37,6 +38,12 @@ Professionele landing page voor KlantFans - Commercieel Strateeg & Turnaround Sp
    ```bash
    vercel env add GEMINI_API_KEY
    ```
+
+5. **Custom domein koppelen** (optioneel, voor later):
+   - Ga naar Project Settings → Domains
+   - Voeg klantfans.nl toe
+   - Voeg www.klantfans.nl toe
+   - Volg DNS instructies van Vercel
 
 ### Netlify
 
@@ -105,13 +112,14 @@ Open gewoon `index.html` in je browser. De AI scan werkt niet zonder backend, ma
 - [ ] Vercel/Netlify account aangemaakt
 - [ ] Git repository gekoppeld
 - [ ] Environment variable `GEMINI_API_KEY` toegevoegd
-- [ ] Custom domein gekoppeld (bijv. klantfans.nl)
+- [ ] Website live op **klantfans.vercel.app**
 - [ ] SSL certificaat geactiveerd (automatisch via Vercel/Netlify)
 - [ ] Profielfoto vervangen in hero sectie
 - [ ] Open Graph afbeelding toegevoegd (`images/og-image.jpg`)
 - [ ] Alle placeholder content gecontroleerd
 - [ ] Contact gegevens gevalideerd
-- [ ] WhatsApp nummer gecontroleerd (regel 626)
+- [ ] WhatsApp nummer gecontroleerd (regel 781)
+- [ ] Custom domein klantfans.nl koppelen (optioneel, voor later)
 
 ## 🔒 Privacy & Beveiliging
 
